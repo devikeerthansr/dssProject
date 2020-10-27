@@ -1,10 +1,10 @@
 package com.amazonaws.lambda.demo.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Snippet {
 	
-	public int snippetId;
+	public String snippetId;
 	public String snippetText;
 	public String snippetInfo;
 	public String snippetPassword;
@@ -12,7 +12,7 @@ public class Snippet {
 	public int numComments;
 	public Date createDate;
 	
-	public Snippet(int snippetId, String snippetText, String snippetInfo, String snippetPassword, String codingLanguage,
+	public Snippet(String snippetId, String snippetText, String snippetInfo, String snippetPassword, String codingLanguage,
 			Date createDate) {
 		super();
 		this.snippetId = snippetId;
@@ -21,6 +21,7 @@ public class Snippet {
 		this.snippetPassword = snippetPassword;
 		this.codingLanguage = codingLanguage;
 		this.createDate = createDate;
+		this.numComments = 0;
 	}
 	@Override
 	public String toString() {
@@ -41,10 +42,10 @@ public class Snippet {
 		
 		return false;  // not a Snippet
 	}
-	public int getSnippetId() {
+	public String getSnippetId() {
 		return snippetId;
 	}
-	public void setSnippetId(int snippetId) {
+	public void setSnippetId(String snippetId) {
 		this.snippetId = snippetId;
 	}
 	public String getSnippetText() {
