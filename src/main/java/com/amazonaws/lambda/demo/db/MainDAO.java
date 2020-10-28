@@ -1,13 +1,11 @@
 package com.amazonaws.lambda.demo.db;
 
-import java.nio.charset.CodingErrorAction;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.amazonaws.lambda.demo.model.Comment;
 import com.amazonaws.lambda.demo.model.Snippet;
-
-
 
 /**
  * 
@@ -82,21 +80,24 @@ public class MainDAO {
         }
     }
 
+    public boolean addComment(Comment comment) throws Exception{
+    	try {
+    		PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblComment + " (CommentId,TimeStamp,CommentText,SnippetRegion,SnippetId) values(?,?,?,?,?);");
+            ps.setInt(1,  comment.commentId);
+            ps.setDate(2,  comment.commentDate);
+            ps.setString(3,  comment.commentText);
+            ps.setInt(4,  comment.region);
+            ps.setString(5,  comment.snippetId);                        
+            ps.execute();
+            return true;
 
+        } catch (Exception e) {
+            throw new Exception("Failed to insert constant: " + e.getMessage());
+        }
+	}
     public boolean addSnippet(Snippet snippet) throws Exception {
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblSnippet + " WHERE SnippetId = ?;");
-            ps.setString(1, snippet.snippetId);
-            ResultSet resultSet = ps.executeQuery();
-            
-            // already present?
-            while (resultSet.next()) {
-                Snippet sni = generateSnippet(resultSet);
-                resultSet.close();
-                return false;
-            }
-
-            ps = conn.prepareStatement("INSERT INTO " + tblSnippet + " (SnippetId,TimeStamp,SnippetInfo,SnippetText,Password,NumComments,CodingLanguage) values(?,?,?,?,?,?,?);");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblSnippet + " (SnippetId,TimeStamp,SnippetInfo,SnippetText,Password,NumComments,CodingLanguage) values(?,?,?,?,?,?,?);");
             ps.setString(1,  snippet.snippetId);
             ps.setDate(2,  snippet.createDate);
             ps.setString(3,  snippet.snippetInfo);
@@ -133,6 +134,27 @@ public class MainDAO {
             throw new Exception("Failed in getting snippets: " + e.getMessage());
         }
     }
+public List<Comment> getAllComments(String snippetId) throws Exception {
+        
+        List<Comment> allComments = new ArrayList<>();
+        try {
+                 
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblComment + " WHERE SnippetId = ?;");
+            ps.setString(1, snippetId);
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+            	Comment c = generateComment(resultSet);
+            	allComments.add(c);
+            }
+            resultSet.close();
+            ps.close();
+            return allComments;
+
+        } catch (Exception e) {
+            throw new Exception("Failed in getting snippets: " + e.getMessage());
+        }
+    }
     private Snippet generateSnippet(ResultSet resultSet) throws Exception {
     	String snippetId  = resultSet.getString("SnippetId");
     	String snippetText = resultSet.getString("SnippetText");
@@ -142,6 +164,16 @@ public class MainDAO {
     	Date createDate = resultSet.getDate("TimeStamp");
     	      return new Snippet(snippetId,snippetText,snippetInfo,snippetPassword, codingLanguage,createDate);
     }
+    private Comment generateComment(ResultSet resultSet) throws Exception {
+    	int commentId = resultSet.getInt("CommentId");
+    	int region = resultSet.getInt("SnippetRegion");
+    	String snippetId  = resultSet.getString("SnippetId");
+    	String commentText = resultSet.getString("CommentText");    	
+    	Date commentDate = resultSet.getDate("TimeStamp");
+    	      return new Comment(commentId, commentText, commentDate, region, snippetId);
+    }
+
+	
     
 
 }

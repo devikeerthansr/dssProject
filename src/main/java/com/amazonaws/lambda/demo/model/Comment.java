@@ -1,6 +1,6 @@
 package com.amazonaws.lambda.demo.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Comment {
 	
@@ -8,9 +8,9 @@ public class Comment {
 	public String commentText;
 	public Date commentDate;
 	public int region;
-	public int snippetId;
+	public String snippetId;
 	
-	public Comment(int commentId, String commentText, Date commentDate, int region, int snippetId) {
+	public Comment(int commentId, String commentText, Date commentDate, int region, String snippetId) {
 		super();
 		this.commentId = commentId;
 		this.commentText = commentText;
@@ -57,10 +57,10 @@ public class Comment {
 	public void setRegion(int region) {
 		this.region = region;
 	}
-	public int getSnippetId() {
+	public String getSnippetId() {
 		return snippetId;
 	}
-	public void setSnippetId(int snippetId) {
+	public void setSnippetId(String snippetId) {
 		this.snippetId = snippetId;
 	}
 	@Override
