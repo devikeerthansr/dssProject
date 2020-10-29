@@ -1,4 +1,4 @@
-package com.amazonaws.lambda.demo.model;
+package com.amazonaws.lambda.thalia.model;
 
 import java.sql.Date;
 

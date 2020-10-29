@@ -1,8 +1,8 @@
-package com.amazonaws.lambda.demo;
-import com.amazonaws.lambda.demo.db.MainDAO;
-import com.amazonaws.lambda.demo.http.CreateSnippetRequest;
-import com.amazonaws.lambda.demo.http.SingleSnippetResponse;
-import com.amazonaws.lambda.demo.model.Snippet;
+package com.amazonaws.lambda.thalia;
+import com.amazonaws.lambda.thalia.db.MainDAO;
+import com.amazonaws.lambda.thalia.http.CreateSnippetRequest;
+import com.amazonaws.lambda.thalia.http.SingleSnippetResponse;
+import com.amazonaws.lambda.thalia.model.Snippet;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 

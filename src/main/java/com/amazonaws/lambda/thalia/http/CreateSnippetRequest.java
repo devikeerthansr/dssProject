@@ -1,6 +1,6 @@
-package com.amazonaws.lambda.demo.http;
+package com.amazonaws.lambda.thalia.http;
 
-import com.amazonaws.lambda.demo.model.Snippet;
+import com.amazonaws.lambda.thalia.model.Snippet;
 
 public class CreateSnippetRequest {
 	

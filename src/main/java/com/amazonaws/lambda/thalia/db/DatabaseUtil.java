@@ -1,4 +1,4 @@
-package com.amazonaws.lambda.demo.db;
+package com.amazonaws.lambda.thalia.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

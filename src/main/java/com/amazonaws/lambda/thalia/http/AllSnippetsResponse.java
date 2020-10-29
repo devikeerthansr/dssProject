@@ -1,8 +1,8 @@
-package com.amazonaws.lambda.demo.http;
+package com.amazonaws.lambda.thalia.http;
 
 import java.util.List;
 
-import com.amazonaws.lambda.demo.model.Snippet;
+import com.amazonaws.lambda.thalia.model.Snippet;
 
 public class AllSnippetsResponse {
 	public final List<Snippet> list;

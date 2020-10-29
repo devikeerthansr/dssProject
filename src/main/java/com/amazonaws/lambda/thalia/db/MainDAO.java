@@ -1,11 +1,11 @@
-package com.amazonaws.lambda.demo.db;
+package com.amazonaws.lambda.thalia.db;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.amazonaws.lambda.demo.model.Comment;
-import com.amazonaws.lambda.demo.model.Snippet;
+import com.amazonaws.lambda.thalia.model.Comment;
+import com.amazonaws.lambda.thalia.model.Snippet;
 
 /**
  * 
@@ -50,19 +50,35 @@ public class MainDAO {
         }
     }
     
-    public boolean updateSnippet(Snippet snippet) throws Exception {
+    public boolean updateSnippet(String snippetId,String snippetText) throws Exception {
         try {
         	String query = "UPDATE " + tblSnippet + " SET SnippetText=? WHERE SnippetId=?;";
         	PreparedStatement ps = conn.prepareStatement(query);
         	
-            ps.setString(1, snippet.snippetText);
-            ps.setString(2, snippet.snippetId);
+            ps.setString(1, snippetText);
+            ps.setString(2, snippetId);
             int numAffected = ps.executeUpdate();
             ps.close();
             
             return (numAffected == 1);
         } catch (Exception e) {
             throw new Exception("Failed to update report: " + e.getMessage());
+        }
+    }
+    
+    public boolean updateSnippetInfo(String snippetId,String snippetInfo) throws Exception {
+        try {
+        	String query = "UPDATE " + tblSnippet + " SET SnippetInfo=? WHERE SnippetId=?;";
+        	PreparedStatement ps = conn.prepareStatement(query);
+        	
+            ps.setString(1, snippetInfo);
+            ps.setString(2, snippetId);
+            int numAffected = ps.executeUpdate();
+            ps.close();
+            
+            return (numAffected == 1);
+        } catch (Exception e) {
+            throw new Exception("Failed to update info: " + e.getMessage());
         }
     }
     

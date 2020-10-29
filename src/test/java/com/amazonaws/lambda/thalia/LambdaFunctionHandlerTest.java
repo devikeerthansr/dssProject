@@ -1,4 +1,4 @@
-package com.amazonaws.lambda.demo;
+package com.amazonaws.lambda.thalia;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -8,6 +8,8 @@ import java.io.OutputStream;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import com.amazonaws.lambda.thalia.LambdaFunctionHandler;
 
 /**
  * A simple test harness for locally invoking your Lambda function handler.

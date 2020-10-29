@@ -1,12 +1,12 @@
-package com.amazonaws.lambda.demo;
+package com.amazonaws.lambda.thalia;
 
 import java.util.List;
 
-import com.amazonaws.lambda.demo.db.MainDAO;
-import com.amazonaws.lambda.demo.http.AllCommentsResponse;
-import com.amazonaws.lambda.demo.http.CreateCommentRequest;
-import com.amazonaws.lambda.demo.model.Comment;
-import com.amazonaws.lambda.demo.model.Snippet;
+import com.amazonaws.lambda.thalia.db.MainDAO;
+import com.amazonaws.lambda.thalia.http.AllCommentsResponse;
+import com.amazonaws.lambda.thalia.http.CreateCommentRequest;
+import com.amazonaws.lambda.thalia.model.Comment;
+import com.amazonaws.lambda.thalia.model.Snippet;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
