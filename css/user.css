@@ -1,0 +1,161 @@
+html {
+    background-color: #BFCFFE;    
+}
+
+body {
+    margin-top: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #001963;
+    min-height: 100vh;
+}
+
+.header-text{
+    float: left;
+    width: 1000px;
+}
+
+.left-header{
+    float:left;
+    width: 300px;
+    text-align: left;
+    padding-top: 5px;
+}
+
+.left-header button{
+    text-decoration: none;
+    background-color: lightblue;
+    width: 180px;
+    height: 40px;
+    color: black;
+    border: 1px solid #001963;
+}
+
+.left-header button:hover{
+    text-decoration: none;
+    background-color: #BFCFFE;
+    color: white;
+}
+
+.right-header{
+    float:right;
+    width: 500px;
+    text-align: right;
+    padding-top: 5px;
+}
+
+.right-header button{
+    text-decoration: none;
+    background-color: lightblue;
+    width: 180px;
+    height: 40px;
+    color: black;
+    border: 1px solid #001963;
+}
+
+.right-header button:hover{
+    text-decoration: none;
+    background-color: #BFCFFE;
+    color: white;
+}
+
+.clearfix{
+    overflow: auto;
+}
+.content{
+    float: left;
+    width: 1000px;
+}
+
+.content-left{
+    float: left;
+    width: 380px;
+    margin-top: 5px;
+}
+.left-content-area{
+    border: 2px solid #001963;  
+    height: 400px;
+}
+
+.left-content-area textarea {
+    resize: none;
+    width: 95%;
+    height: 95%;
+    margin: 2%;  
+    text-align: justify;  
+    font-size: 15px;
+    padding: 2px;
+}
+
+.content-middle{
+    float: left;
+    width: 300px;
+    margin-left: 20px;
+}
+
+.middle-content-area{
+    height: 400px;
+    margin-top: 5px;
+    border: 2px solid #001963;  
+}
+
+.content-middle textarea {
+    resize: none;
+    width: 94%;
+    height:95%;
+    margin: 2%;  
+    text-align: justify;  
+    font-size: 15px;
+    padding: 2px;
+}
+
+.content-right{
+    float: right;
+    width: 280px;
+    margin-top: 5px;
+}
+.right-content-area{
+    border: 2px solid #001963;  
+    height: 200px;
+}
+.bottom-content {
+    padding-top: 5px;
+    text-align: center;
+}
+.bottom-content button{
+    width: 120px;
+    height: 30px;
+    background-color: lightblue;
+    color: black;
+    border: 1px solid #001963;
+    margin-bottom: 5px;
+}
+
+.bottom-content button:hover{
+    text-decoration: none;
+    background-color: #BFCFFE;
+    color: white;
+}
+
+.right-content-area textarea {
+    resize: none;
+    width: 94%;
+    height: 91%;
+    margin: 2%;  
+    text-align: justify;  
+    font-size: 15px;
+    padding: 2px;
+}
+.content h1{
+    padding: 10px;
+    margin: 0px;
+    font-size: 20px;
+    text-align: center;
+}

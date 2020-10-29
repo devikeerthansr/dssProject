@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Creator</title>
+    <link href="../css/user.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- container for whole page-->
+    <div id="container">
+      <!-- header content-->
+      <div class="header-text">
+        <div class="left-header">
+          <button>Select Coding Language</button>
+        </div>
+        <div class="right-header">
+          <button id="creator-new-snippet">Create New Snippet</button>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <!--content-->
+      <div class="content">
+        <!--contentleft Code Snippet-->
+        <div class="content-left">
+          <h1>Code Snippet</h1>
+          <div class="left-content-area">
+            <textarea disabled="disabled" id="snippet-textarea"></textarea>
+          </div>
+          <div class="bottom-content">
+            <button id="save-snippet">Save Snippet</button> <button id="edit-snippet">Edit Snippet</button> <button id="delete-snippet">Delete Snippet</button>
+          </div>
+        </div>
+        <!--content middle Comments-->
+        <div class="content-middle">
+          <h1>Comments</h1>
+          <div class="middle-content-area">
+            <textarea id="comment" disabled="disabled"></textarea>
+          </div>
+          <div class="bottom-content">
+            <button id="add-comment">Add Comment</button>
+            <button id="save-comment">Save Comment</button>
+            <button id="delete-comment">Delete Comment</button>
+          </div>
+        </div>
+        <!--content right Snippet Info-->
+        <div class="content-right">
+          <h1>Snippet Info</h1>
+          <div class="right-content-area">
+            <textarea id="info-textarea" disabled="disabled"></textarea>
+          </div>
+          <div class="bottom-content"> <button id="save-info">Save Info</button> <button id="edit-info">Edit Info</button></div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>
