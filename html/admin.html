@@ -13,27 +13,47 @@
   <body>
     <!-- container for whole page-->
     <div id="container">
+      <!-- header content-->
+      <div class="header-text">
+        <div class="dropdown">
+		   <button onclick="myFunction()" class="dropbtn">Select Coding Language</button>
+		   <div id="myDropdown" class="dropdown-content">
+              <a href="#">Java</a>
+              <a href="#">C++</a>
+              <a href="#">C</a>
+			  <a href="#">PHP</a>
+              <a href="#">Python</a>
+              <a href="#">JavaScript</a>
+			  <a href="#">HTML</a>
+            </div>
+        </div>
+        <div class="right-header">
+          <button id="creator-new-snippet">Create New Snippet</button>
+        </div>
+      </div>
+      <div class="clearfix"></div>
       <!--content-->
       <div class="content">
-        <!--content left date-->
+        <!--contentleft Code Snippet-->
         <div class="content-left">
-          <h1>Date</h1>
+          <h1>Code Snippet</h1>
           <div class="left-content-area">
             <textarea disabled="disabled" id="snippet-textarea"></textarea>
           </div>
+          <div class="bottom-content">
+            <button id="save-snippet">Save Snippet</button> <button id="edit-snippet">Edit Snippet</button> <button id="delete-snippet">Delete Snippet</button>
+          </div>
         </div>
-        <!--content middle List of Snippets-->
+        <!--content middle Comments-->
         <div class="content-middle">
-          <h1>List of Snippets</h1>
+          <h1>Comments</h1>
           <div class="middle-content-area">
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
+            <textarea id="comment" disabled="disabled"></textarea>
+          </div>
+          <div class="bottom-content">
+            <button id="add-comment">Add Comment</button>
+            <button id="save-comment">Save Comment</button>
+            <button id="delete-comment">Delete Comment</button>
           </div>
         </div>
         <!--content right Snippet Info-->
@@ -42,8 +62,25 @@
           <div class="right-content-area">
             <textarea id="info-textarea" disabled="disabled"></textarea>
           </div>
-          <div class="bottom-content"><button id="delete-snippet">Delete Snippet</button></div>
+          <div class="bottom-content"> <button id="save-info">Save Info</button> <button id="edit-info">Edit Info</button></div>
         </div>
+		<!--content left List of Snippets-->
+        <div class="content-bottom-middle">
+          <h1>List of Snippets</h1>
+          <div class="bottom-middle-content-area">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+          </div>
+        </div>
+		
+		
+		
       </div>
       <div class="clearfix"></div>
     </div>

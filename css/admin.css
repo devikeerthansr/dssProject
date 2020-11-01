@@ -10,11 +10,60 @@ body {
 #container{
     margin: 0 auto;
     width: 1000px;
-    padding: 10px;
+    padding: 20px;
     margin: 0 auto;
     background-color: white;
+    border: 3px solid #001963;
+    min-height: 140vh;
+}
+
+.header-text{
+    float: left;
+    width: 1000px;
+}
+
+.left-header{
+    float:left;
+    width: 300px;
+    text-align: left;
+    padding-top: 5px;
+}
+
+.left-header button{
+    text-decoration: none;
+    background-color: lightblue;
+    width: 180px;
+    height: 50px;
+    color: black;
     border: 1px solid #001963;
-    min-height: 100vh;
+}
+
+.left-header button:hover{
+    text-decoration: none;
+    background-color: #BFCFFE;
+    color: white;
+}
+
+.right-header{
+    float:right;
+    width: 500px;
+    text-align: right;
+    padding-top: 5px;
+}
+
+.right-header button{
+    text-decoration: none;
+    background-color: lightblue;
+    width: 180px;
+    height: 50px;
+    color: black;
+    border: 1px solid #001963;
+}
+
+.right-header button:hover{
+    text-decoration: none;
+    background-color: #BFCFFE;
+    color: white;
 }
 
 .clearfix{
@@ -27,12 +76,12 @@ body {
 
 .content-left{
     float: left;
-    width: 250px;
+    width: 380px;
     margin-top: 5px;
 }
 .left-content-area{
     border: 2px solid #001963;  
-    height: 200px;
+    height: 400px;
 }
 
 .left-content-area textarea {
@@ -47,20 +96,29 @@ body {
 
 .content-middle{
     float: left;
-    width: 480px;
-    margin-left: 10px;
+    width: 300px;
+    margin-left: 20px;
 }
 
 .middle-content-area{
     height: 400px;
     margin-top: 5px;
     border: 2px solid #001963;  
-    overflow: scroll;
+}
+
+.content-middle textarea {
+    resize: none;
+    width: 94%;
+    height:95%;
+    margin: 2%;  
+    text-align: justify;  
+    font-size: 15px;
+    padding: 2px;
 }
 
 .content-right{
     float: right;
-    width: 250px;
+    width: 280px;
     margin-top: 5px;
 }
 .right-content-area{
@@ -73,7 +131,7 @@ body {
 }
 .bottom-content button{
     width: 120px;
-    height: 30px;
+    height: 50px;
     background-color: lightblue;
     color: black;
     border: 1px solid #001963;
@@ -101,10 +159,67 @@ body {
     font-size: 20px;
     text-align: center;
 }
-
-.middle-content-area button{
+.content-bottom-middle{
+    float: left;
+    width: 480px;
+    margin-left: 10px;
+}
+.bottom-middle-content-area{
+    height: 500px;
+    margin-top: 5px;
+    border: 2px solid #001963;  
+    overflow: scroll;
+}
+.bottom-middle-content-area button{
  display: block;
  margin: 10px auto;
  width: 95%;
  height: 50px;
 }
+
+/* Dropdown Button */
+.dropbtn {
+  text-decoration: none;
+    background-color: lightblue;
+    width: 220px;
+    height: 50px;
+    color: black;
+    border: 1px solid #001963;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  text-decoration: none;
+    background-color: #BFCFFE;
+    color: white;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
