@@ -153,6 +153,17 @@ body {
     font-size: 15px;
     padding: 2px;
 }
+
+.bottom-right-content-area textarea {
+	resize: none;
+    width: 94%;
+    height: 50%;
+    margin: 1%;  
+    text-align: justify;  
+    font-size: 15px;
+    padding: 2px;
+}
+
 .content h1{
     padding: 10px;
     margin: 0px;

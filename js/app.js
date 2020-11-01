@@ -1,6 +1,5 @@
 // Create a new snippet
 $("#creator-new-snippet").click(function(e){
-
    if($("#info-textarea").val() == ""){
       $("#info-textarea").prop('disabled', false);
    }
@@ -8,7 +7,10 @@ $("#creator-new-snippet").click(function(e){
    if($("#snippet-textarea").val() == ""){
       $("#snippet-textarea").prop('disabled', false);
    }
-
+   
+   if($("#id-textarea").val() == ""){
+      $("#id-textarea").prop('disabled', false);
+   }
 });
 
 // Add comment
@@ -38,6 +40,13 @@ $("#save-info").click(function(e){
    }
 });
 
+// Save ID
+$("#save-id").click(function(e){
+   if(!$("#info-textarea").val() == ""){
+      $("#info-textarea").prop('disabled', true);
+   }
+});
+
 // Save snippet
 $("#save-snippet").click(function(e){
    if(!$("#snippet-textarea").val() == ""){
@@ -47,6 +56,11 @@ $("#save-snippet").click(function(e){
 
 // Edit info
 $("#edit-info").click(function(e){
+   $("#info-textarea").prop('disabled', false);
+});
+
+// Edit ID
+$("#edit-id").click(function(e){
    $("#info-textarea").prop('disabled', false);
 });
 
