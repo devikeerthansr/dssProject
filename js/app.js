@@ -42,8 +42,8 @@ $("#save-info").click(function(e){
 
 // Save ID
 $("#save-id").click(function(e){
-   if(!$("#info-textarea").val() == ""){
-      $("#info-textarea").prop('disabled', true);
+   if(!$("#id-textarea").val() == ""){
+      $("#id-textarea").prop('disabled', true);
    }
 });
 
@@ -61,7 +61,7 @@ $("#edit-info").click(function(e){
 
 // Edit ID
 $("#edit-id").click(function(e){
-   $("#info-textarea").prop('disabled', false);
+   $("#id-textarea").prop('disabled', false);
 });
 
 // Edit snippet
@@ -73,6 +73,7 @@ $("#edit-snippet").click(function(e){
 $("#delete-snippet").click(function(e){
    $("#snippet-textarea").val("");
    $("#info-textarea").val("");
+   $("#id-textarea").val("");
 });
 
 /* When the user clicks on the button,
