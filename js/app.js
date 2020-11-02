@@ -76,6 +76,46 @@ $("#delete-snippet").click(function(e){
    $("#id-textarea").val("");
 });
 
+// Dynamically load list of snippets
+function loadSnippets() {
+	var requestUrl = "https://virtserver.swaggerhub.com/Thalia8/Project/1.0.0/admin/snippetList";
+	
+	var xhr = new XMLHttpRequest();
+	
+	// send POST to get list of all snippets
+	xhr.open("GET", requestUrl);
+	
+	// send request
+	xhr.send();
+	
+	// this will be called once response is received
+	xhr.onload = function() {
+		if(xhr.status == 200)
+		{
+			var resp = xhr.response;
+			resp = [
+		  		{ "id" : 1},
+		  		{ "id" : 1 },
+		  		{ "id" : 1 }
+			];
+			var i;
+			for (i in resp) {
+				var snippetId = resp[i].id;
+			
+				// Button for snippet
+				var snippetBtn = document.createElement("BUTTON");
+				var t = document.createTextNode(snippetId);
+				
+				snippetBtn.setAttribute("style","color:red;font-size:23px");
+				snippetBtn.appendChild(t);
+		
+				var snippetList = document.getElementById('snippetList');
+				snippetList.appendChild(snippetBtn);
+			}
+		}
+	}
+}
+
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function myFunction() {
@@ -95,3 +135,9 @@ window.onclick = function(event) {
     }
   }
 }
+
+window.onload = function() {
+  	loadSnippets();
+}
+
+
