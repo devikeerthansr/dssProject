@@ -20,6 +20,7 @@ public class CreateSnippetHandler implements RequestHandler<CreateSnippetRequest
 			
 		} catch (Exception e) {
 			response = new SingleSnippetResponse(null, 400);
+			System.err.println(e.toString()+e.getMessage());
 		}
 
 		return response;

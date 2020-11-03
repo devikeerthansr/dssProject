@@ -17,7 +17,7 @@ public class DatabaseUtil {
 	// Make sure matches Schema created from MySQL WorkBench
 	// Make sysEnv variable lambdaTesting so we know we are locally testing
 	public final static String lambdaTesting = "lambdaTesting";
-	public final static String dbName = "sys";
+	public final static String dbName = "thaliaDb";
 	public final static String testName = "test";
 	
 	// pooled across all usages.
@@ -60,6 +60,7 @@ public class DatabaseUtil {
 					dbPassword);
 			return conn;
 		} catch (Exception ex) {
+			System.err.println(ex.toString());
 			System.err.println("DB-ERROR:" + schemaName + "," + dbUsername + "," + dbPassword + "," + rdsMySqlDatabaseUrl);
 			throw new Exception("Failed in database connection");
 		}
