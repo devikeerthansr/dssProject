@@ -107,22 +107,7 @@ function updateSnippetText() {
 		}
 	}
 }
-
-// Dynamically load list of snippets
-function loadSnippets() {
-	var xhr = new XMLHttpRequest();
-	
-	// send POST to get list of all snippets
-	xhr.open("GET", list_url);
-	
-	// send request
-	xhr.send();
-	
-	// this will be called once response is received
-	xhr.onload = function() {
-		if(xhr.status == 200)
-		{
-			var resp = xhr.response;
+function updateSnippetList(resp){
 			var i;
 			var snippetList = document.getElementById('snippetList');
 			
@@ -141,6 +126,23 @@ function loadSnippets() {
 				
 				snippetList.appendChild(snippetBtn);
 			}
+} 
+// Dynamically load list of snippets
+function loadSnippets() {
+	var xhr = new XMLHttpRequest();
+	
+	// send POST to get list of all snippets
+	xhr.open("GET", list_url);
+	
+	// send request
+	xhr.send();
+	
+	// this will be called once response is received
+	xhr.onload = function() {
+		if(xhr.status == 200)
+		{
+			var resp = xhr.response;
+			updateSnippetList(resp);
 		}
 	}
 }
