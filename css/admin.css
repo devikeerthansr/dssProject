@@ -72,6 +72,7 @@ body {
 .clearfix{
     overflow: auto;
 }
+
 .content{
     float: left;
     width: 1300px;
@@ -82,6 +83,7 @@ body {
     width: 685px;
     margin-top: 5px;
 }
+
 .left-content-area{
     border: 1px solid #001963;  
     height: 400px;
@@ -125,18 +127,22 @@ body {
     width: 280px;
     margin-top: 5px;
 }
+
 .snippet-info-content-area{
     border: 1px solid #001963;  
     height: 200px;
 }
+
 .snippet-id-content-area{
     border: 1px solid #001963;
     height: 50px;	
 }
+
 .snippet-id-content {
     padding-top: 5px;
     text-align: center;
 }
+
 .snippet-id-content button{
     width: 120px;
     height: 50px;
@@ -178,17 +184,20 @@ body {
     font-size: 20px;
     text-align: center;
 }
+
 .content-list-of-snippets{
     float: left;
     width: 480px;
     margin-left: 10px;
 }
+
 .list-of-snippets-content-area{
     height: 500px;
     margin-top: 5px;
     border: 1px solid #001963;  
     overflow: scroll;
 }
+
 .list-of-snippets-content-area button{
  display: block;
  margin: 10px auto;
