@@ -10,7 +10,7 @@ function makeid(length) {
 
 function handleCreateClick(e) {
   var data = {};
-  data["snippetId"] = ;
+  data["snippetId"] = makeid(8);
   data["snippetText"] = document.getElementById("snippet-textarea").value;
   data["snippetInfo"] = document.getElementById("info-textarea").value;
   $.getJSON('https://api.ipify.org?format=json', function(data){
