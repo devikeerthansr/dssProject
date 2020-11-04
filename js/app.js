@@ -65,10 +65,12 @@ function updateSnippetText() {
 	var xhr = new XMLHttpRequest();
 	
 	var requestData = {};
-	requestData["id"] = "?";
+	requestData["id"] = document.getElementById("uniqueSnippetId").value;
 	requestData["text"] = document.getElementById("snippet-textarea").value;
-	requestData["password"] = "?"; //ip address 
-	requestData["codingLanguage"] = "?";
+	$.getJSON('https://api.ipify.org?format=json', function(data){
+    	requestData["password"] = data.ip;
+	});
+	requestData["codingLanguage"] = document.getElementById("languages").value;
 	
 	// send POST to get list of all snippets
 	xhr.open("POST", update_snippet_text_url, true);
@@ -80,14 +82,13 @@ function updateSnippetText() {
 	xhr.onloadend = function() {
 		if (xhr.readyState == XMLHttpRequest.DONE)
 		{
-			if(xhr.status == 200)
+			if(xhr.status == 400)
 			{
-				document.getElementById("snippet-textarea").value = "GOOD";
+				alert("Bad update snippet request");
 			}
 		}
 		else
 		{
-			document.getElementById("snippet-textarea").value = "BAD";
 		}
 	}
 }
