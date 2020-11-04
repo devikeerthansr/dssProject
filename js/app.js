@@ -1,12 +1,9 @@
 // Create a new snippet
 $("#creator-new-snippet").click(function(e){
-   if($("#info-textarea").val() == ""){
-      $("#info-textarea").prop('disabled', false);
-   }
-
-   if($("#snippet-textarea").val() == ""){
-      $("#snippet-textarea").prop('disabled', false);
-   }
+   
+      $("#info-textarea").prop('disabled', false);  
+      $("#snippet-textarea").prop('disabled', false);      
+   
 });
 
 // Add Comment
@@ -39,8 +36,9 @@ $("#save-info").click(function(e){
 // Save snippet
 $("#save-snippet").click(function(e){
    if(!$("#snippet-textarea").val() == ""){
+   	  handleCreateClick()	
       $("#snippet-textarea").prop('disabled', true);
-   }
+   } 
 });
 
 // Edit info

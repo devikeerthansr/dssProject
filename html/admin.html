@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+	
   <head>
-    <meta charset="utf-8" />
+  	<meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" href="icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Admin</title>
-    <link href="../css/admin.css" rel="stylesheet" />
+    <link href="../css/admin.css" type="text/css" rel="stylesheet" />
+    
   </head>
   <body>
     <!-- container for whole page-->
@@ -76,13 +78,15 @@
 		<!--content left List of Snippets-->
         <div class="content-list-of-snippets">
           <h1>List of Snippets</h1>
-		  <div class="list-of-snippets-content-area"> <button id="snippet-id">Snippet ID:</button></div>
+		  <div class="list-of-snippets-content-area" id="snippetList"> </div>
           </div>
         </div>
       </div>
       <div class="clearfix"></div>
     </div>
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/app.js"></script>
+    <script type="text/javascript" src='../js/jquery.min.js'></script>
+  	<script type='text/javascript' src='../js/api.js'></script>
+	<script type='text/javascript' src='../js/app.js'></script>
+	<script type='text/javascript' src='../js/createSnippet.js'></script>
   </body>
 </html>
