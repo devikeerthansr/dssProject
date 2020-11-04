@@ -77,6 +77,38 @@ $("#delete-snippet").click(function(e){
 });
 
 // Dynamically load list of snippets
+function updateSnippetText() {
+	var xhr = new XMLHttpRequest();
+	
+	var requestData = {};
+	requestData["id"] = "?";
+	requestData["text"] = document.getElementById("snippet-textarea").value;
+	requestData["password"] = "?";
+	requestData["codingLanguage"] = "?";
+	
+	// send POST to get list of all snippets
+	xhr.open("POST", "https://virtserver.swaggerhub.com/Thalia8/Project/1.0.0/updateSnippetText", true);
+	
+	// send request
+	xhr.send(JSON.parse(requestData));
+	
+	// this will be called once response is received
+	xhr.onloadend = function() {
+		if (xhr.readyState == XMLHttpRequest.DONE)
+		{
+			if(xhr.status == 200)
+			{
+				document.getElementById("snippet-textarea").value = "GOOD";
+			}
+		}
+		else
+		{
+			document.getElementById("snippet-textarea").value = "BAD";
+		}
+	}
+}
+
+// Dynamically load list of snippets
 function loadSnippets() {
 	var xhr = new XMLHttpRequest();
 	
@@ -91,11 +123,6 @@ function loadSnippets() {
 		if(xhr.status == 200)
 		{
 			var resp = xhr.response;
-			resp = [
-		  		{ "id" : 1},
-		  		{ "id" : 1 },
-		  		{ "id" : 1 }
-			];
 			var i;
 			for (i in resp) {
 				var snippetId = resp[i].id;
