@@ -9,7 +9,7 @@ $("#creator-new-snippet").click(function(e){
    }
 });
 
-// Add comment
+// Add Comment
 $("#add-comment").click(function(e){
    if($("#comment").val() == ""){
       $("#comment").prop('disabled', false);
