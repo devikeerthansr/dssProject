@@ -78,12 +78,10 @@ $("#delete-snippet").click(function(e){
 
 // Dynamically load list of snippets
 function loadSnippets() {
-	var requestUrl = "https://virtserver.swaggerhub.com/Thalia8/Project/1.0.0/admin/snippetList";
-	
 	var xhr = new XMLHttpRequest();
 	
 	// send POST to get list of all snippets
-	xhr.open("GET", requestUrl);
+	xhr.open("GET", list_url);
 	
 	// send request
 	xhr.send();
