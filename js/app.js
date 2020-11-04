@@ -83,14 +83,14 @@ function updateSnippetText() {
 	var requestData = {};
 	requestData["id"] = "?";
 	requestData["text"] = document.getElementById("snippet-textarea").value;
-	requestData["password"] = "?";
+	requestData["password"] = "?"; //ip address 
 	requestData["codingLanguage"] = "?";
 	
 	// send POST to get list of all snippets
-	xhr.open("POST", "https://virtserver.swaggerhub.com/Thalia8/Project/1.0.0/updateSnippetText", true);
+	xhr.open("POST", update_snippet_text_url, true);
 	
 	// send request
-	xhr.send(JSON.parse(requestData));
+	xhr.send(JSON.stringify(requestData));
 	
 	// this will be called once response is received
 	xhr.onloadend = function() {
@@ -124,6 +124,11 @@ function loadSnippets() {
 		{
 			var resp = xhr.response;
 			var i;
+			var snippetList = document.getElementById('snippetList');
+			
+			//clear snippetList
+			snippetList.innerHTML = '';
+			
 			for (i in resp) {
 				var snippetId = resp[i].id;
 			
@@ -133,8 +138,7 @@ function loadSnippets() {
 				
 				snippetBtn.setAttribute("style","color:red;font-size:23px");
 				snippetBtn.appendChild(t);
-		
-				var snippetList = document.getElementById('snippetList');
+				
 				snippetList.appendChild(snippetBtn);
 			}
 		}
