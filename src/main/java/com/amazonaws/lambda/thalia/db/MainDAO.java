@@ -108,10 +108,11 @@ public class MainDAO {
             return true;
 
         } catch (Exception e) {
-            throw new Exception("Failed to insert constant: " + e.getMessage());
+            throw new Exception("Failed to insert comment: " + e.getMessage());
         }
 	}
     public boolean addSnippet(Snippet snippet) throws Exception {
+    	System.err.println("snippet"+":"+snippet);
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO " + tblSnippet + " (SnippetId,TimeStamp,SnippetInfo,SnippetText,Password,NumComments,CodingLanguage) values(?,?,?,?,?,?,?);");
             ps.setString(1,  snippet.snippetId);
@@ -126,7 +127,7 @@ public class MainDAO {
             return true;
 
         } catch (Exception e) {
-            throw new Exception("Failed to insert constant: " + e.getMessage());
+            throw new Exception("Failed to insert snippet: " + e.getMessage());
         }
     }
 

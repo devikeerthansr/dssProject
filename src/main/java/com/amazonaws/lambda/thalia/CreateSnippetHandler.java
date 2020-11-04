@@ -11,11 +11,12 @@ public class CreateSnippetHandler implements RequestHandler<CreateSnippetRequest
 	@Override
 	public SingleSnippetResponse handleRequest(CreateSnippetRequest input, Context context) {
 		SingleSnippetResponse response;
+		Snippet snippet = new Snippet(input.snippetId,input.snippetText,input.snippetInfo,input.snippetPassword, input.codingLanguage,input.createDate);
 		try {			
-				if (createSnippet(input.snippet)) {
-					response = new SingleSnippetResponse(input.snippet);
+				if (createSnippet(snippet)) {
+					response = new SingleSnippetResponse(snippet);
 				} else {
-					response = new SingleSnippetResponse(input.snippet, 422);
+					response = new SingleSnippetResponse(snippet, 422);
 				}
 			
 		} catch (Exception e) {
