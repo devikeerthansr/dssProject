@@ -9,12 +9,23 @@ function makeid(length) {
 }
 
 function handleCreateClick(e) {
-  var form = document.createForm;
- 
   var data = {};
-  data["name"] = form.constantName.value;
-  data["value"] = form.constantValue.value;
-
+  data["snippetId"] = ;
+  data["snippetText"] = document.getElementById("snippet-textarea").value;
+  data["snippetInfo"] = document.getElementById("info-textarea").value;
+  $.getJSON('https://api.ipify.org?format=json', function(data){
+    data["snippetPassword"] = data.ip;
+});
+  
+  data["codingLanguage"] = document.getElementById("languages").value;
+  data["numComments"] = 0;
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+  var yyyy = today.getFullYear();
+  today = mm + '/' + dd + '/' + yyyy;
+  data["createDate"] = today;
+  
   var js = JSON.stringify(data);
   console.log("JS:" + js);
   var xhr = new XMLHttpRequest();
@@ -28,17 +39,15 @@ function handleCreateClick(e) {
     console.log(xhr);
     console.log(xhr.request);
     if (xhr.readyState == XMLHttpRequest.DONE) {
-    	 if (xhr.status == 200) {
-	      console.log ("XHR:" + xhr.responseText);
-	      processCreateResponse(xhr.responseText);
+    	 if (xhr.status == 200) {	      
+	      updateSnippetList(xhr.response);
     	 } else {
-    		 console.log("actual:" + xhr.responseText)
-			  var js = JSON.parse(xhr.responseText);
+    		  var js = JSON.parse(xhr.response);
 			  var err = js["response"];
 			  alert (err);
     	 }
     } else {
-      processCreateResponse("N/A");
+      
     }
   };
 }
