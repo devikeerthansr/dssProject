@@ -61,6 +61,57 @@ $("#delete-snippet").click(function(e){
 });
 
 // Dynamically load list of snippets
+function updateSnippetText() {
+	var xhr = new XMLHttpRequest();
+	
+	var requestData = {};
+	requestData["id"] = "?";
+	requestData["text"] = document.getElementById("snippet-textarea").value;
+	requestData["password"] = "?"; //ip address 
+	requestData["codingLanguage"] = "?";
+	
+	// send POST to get list of all snippets
+	xhr.open("POST", update_snippet_text_url, true);
+	
+	// send request
+	xhr.send(JSON.stringify(requestData));
+	
+	// this will be called once response is received
+	xhr.onloadend = function() {
+		if (xhr.readyState == XMLHttpRequest.DONE)
+		{
+			if(xhr.status == 200)
+			{
+				document.getElementById("snippet-textarea").value = "GOOD";
+			}
+		}
+		else
+		{
+			document.getElementById("snippet-textarea").value = "BAD";
+		}
+	}
+}
+function updateSnippetList(resp){
+			var i;
+			var snippetList = document.getElementById('snippetList');
+			
+			//clear snippetList
+			snippetList.innerHTML = '';
+			
+			for (i in resp) {
+				var snippetId = resp[i].id;
+			
+				// Button for snippet
+				var snippetBtn = document.createElement("BUTTON");
+				var t = document.createTextNode(snippetId);
+				
+				snippetBtn.setAttribute("style","color:red;font-size:23px");
+				snippetBtn.appendChild(t);
+				
+				snippetList.appendChild(snippetBtn);
+			}
+} 
+// Dynamically load list of snippets
 function loadSnippets() {
 	var xhr = new XMLHttpRequest();
 	
@@ -75,25 +126,7 @@ function loadSnippets() {
 		if(xhr.status == 200)
 		{
 			var resp = xhr.response;
-			resp = [
-		  		{ "id" : 1},
-		  		{ "id" : 1 },
-		  		{ "id" : 1 }
-			];
-			var i;
-			for (i in resp) {
-				var snippetId = resp[i].id;
-			
-				// Button for snippet
-				var snippetBtn = document.createElement("BUTTON");
-				var t = document.createTextNode(snippetId);
-				
-				snippetBtn.setAttribute("style","color:red;font-size:23px");
-				snippetBtn.appendChild(t);
-		
-				var snippetList = document.getElementById('snippetList');
-				snippetList.appendChild(snippetBtn);
-			}
+			updateSnippetList(resp);
 		}
 	}
 }
@@ -102,13 +135,5 @@ window.onload = function() {
   	loadSnippets();
 }
 
-function makeid(length) {
-   var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-   var charactersLength = characters.length;
-   for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   return result;
-}
+
 
