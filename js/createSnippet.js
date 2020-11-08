@@ -8,34 +8,29 @@ function makeid(length) {
    return result;
 }
 
-function handleCreateClick() {
-  var data = {};
-  data["snippetId"] = makeid(8);
-  data["snippetText"] = document.getElementById("snippet-textarea").value;
-  data["snippetInfo"] = document.getElementById("info-textarea").value;
-  
-  data["snippetPassword"] = "10.23.46.235";
-  data["codingLanguage"] = document.getElementById("languages").value;
-  data["numComments"] = 0;
-  var today = new Date();
-  
-      var min = today.getTime() / 1000 / 60; // 
-        var localNow = new Date().getTimezoneOffset(); // get the timezone
-        // offset in minutes
-        var localTime = min - localNow; // get the local time
-
-    var dateStr = new Date(today * 1000 * 60);
-    dateStr = dateStr.toString("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-     
-  data["createDate"] = "2020-11-04T04:29:26.896Z";
-  
-  var js = JSON.stringify(data);
-  console.log("JS:" + js);
+function handleCreateClick() {  
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", create_snippet_url, true);
+  
+  $.get("https://ipinfo.io", function(response) { 
+		  var data = {};
+		  data["snippetId"] = makeid(8);
+		  data["snippetText"] = document.getElementById("snippet-textarea").value;
+		  data["snippetInfo"] = document.getElementById("info-textarea").value;
+          data["snippetPassword"] = response.ip; 
+          data["codingLanguage"] = document.getElementById("languages").value;
+		  data["numComments"] = 0;
+		  
+		  var today = new Date(); 
+		  data["createDate"] = today.toISOString();
+		  
+		  var js = JSON.stringify(data);
+		  console.log("JS:" + js);
 
-  // send the collected data as JSON
-  xhr.send(js);
+		  xhr.open("POST", create_snippet_url, true);
+		
+		  // send the collected data as JSON
+		  xhr.send(js);
+        }, "json")
 
   // This will process results and update HTML as appropriate. 
   xhr.onloadend = function () {
