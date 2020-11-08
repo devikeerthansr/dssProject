@@ -29,6 +29,7 @@ $("#delete-comment").click(function(e){
 // Save info 
 $("#save-info").click(function(e){
    if(!$("#info-textarea").val() == ""){
+	   updateSnippetInfo();
       $("#info-textarea").prop('disabled', true);
    }
 });
@@ -36,7 +37,8 @@ $("#save-info").click(function(e){
 // Save snippet
 $("#save-snippet").click(function(e){
    if(!$("#snippet-textarea").val() == ""){
-   	  handleCreateClick()	
+	   handleCreateClick();
+	   updateSnippetText();
       $("#snippet-textarea").prop('disabled', true);
    } 
 });
@@ -58,38 +60,79 @@ $("#delete-snippet").click(function(e){
    $("#id-textarea").val("");
 });
 
-// Dynamically load list of snippets
+// Update Snippet Text
 function updateSnippetText() {
 	var xhr = new XMLHttpRequest();
 	
-	var requestData = {};
-	requestData["id"] = document.getElementById("uniqueSnippetId").value;
-	requestData["text"] = document.getElementById("snippet-textarea").value;
-	$.getJSON('https://api.ipify.org?format=json', function(data){
-    	requestData["password"] = data.ip;
-	});
-	requestData["codingLanguage"] = document.getElementById("languages").value;
-	
-	// send POST to get list of all snippets
-	xhr.open("POST", update_snippet_text_url, true);
-	
-	// send request
-	xhr.send(JSON.stringify(requestData));
-	
-	// this will be called once response is received
-	xhr.onloadend = function() {
-		if (xhr.readyState == XMLHttpRequest.DONE)
+    $.get("https://ipinfo.io", function(response) { 
+		var requestData = {};
+		requestData["id"] = document.getElementById("id-textarea").value;
+		requestData["text"] = document.getElementById("snippet-textarea").value;
+		requestData["password"] = response.ip;
+		requestData["codingLanguage"] = document.getElementById("languages").value;
+
+		var js = JSON.stringify(requestData);
+		console.log("JS:" + js);
+
+		xhr.open("POST", update_snippet_text_url, true);
+
+		// Send the collected data as JSON
+		xhr.send(js);
+	}, "json")
+
+	xhr.onloadend = function () {
+    console.log(xhr);
+    console.log(xhr.request);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+		if (xhr.status == 200) 
 		{
-			if(xhr.status == 400)
-			{
-				alert("Bad update snippet request");
-			}
-		}
-		else
+			console.log ("XHR:" + xhr.responseText);
+    	} 
+		else 
 		{
+			console.log("actual:" + xhr.responseText)
+			var js = JSON.parse(xhr.responseText);
+			var err = js["response"];
+			alert (err);
 		}
-	}
+    }
+  }
 }
+
+// Update Snippet Info
+function updateSnippetInfo() {
+	var xhr = new XMLHttpRequest();
+	var requestData = {};
+	requestData["id"] = document.getElementById("id-textarea").value;
+	requestData["info"] = document.getElementById("info-textarea").value;
+    
+	var js = JSON.stringify(requestData);
+	console.log("JS:" + js);
+
+	xhr.open("POST", update_snippet_info_url, true);
+
+	// Send the collected data as JSON
+	xhr.send(js);
+
+	xhr.onloadend = function () {
+    console.log(xhr);
+    console.log(xhr.request);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+		if (xhr.status == 200) 
+		{
+			console.log ("XHR:" + xhr.responseText);
+    	} 
+		else 
+		{
+			console.log("actual:" + xhr.responseText)
+			var js = JSON.parse(xhr.responseText);
+			var err = js["response"];
+			alert (err);
+		}
+    }
+  }
+}
+
 function updateSnippetList(resp){
 	var i;
 	var snippetList = document.getElementById('snippetList');
