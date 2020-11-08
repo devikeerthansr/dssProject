@@ -1,3 +1,4 @@
+
 function makeid(length) {
    var result           = '';
    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -19,6 +20,8 @@ function handleCreateClick() {
           data["snippetPassword"] = response.ip; 
           data["codingLanguage"] = document.getElementById("languages").value;
 		  data["numComments"] = 0;
+		  
+		  $("#id-textarea").val(data["snippetId"]);
 		  
 		  var today = new Date(); 
 		  data["createDate"] = today.toISOString();
