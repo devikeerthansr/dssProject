@@ -16,7 +16,7 @@ public class DeleteCommentHandler implements RequestHandler<DeleteCommentRequest
 		MainDAO dao = new MainDAO();	
 		
 		try {
-			if (dao.deleteComment(req.getSnippetId(),req.getCommentId())) {
+			if (dao.deleteComment(req.getSnippetId(),req.getCommentId(),req.getPassword())) {
 				response = new AllCommentsResponse(getComments(req.getSnippetId()), 200);
 			} else {
 				response = new AllCommentsResponse(null, 422, "Unable to delete comment.");

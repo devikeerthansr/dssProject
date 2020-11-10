@@ -3,6 +3,18 @@ package com.amazonaws.lambda.thalia.http;
 public class DeleteCommentRequest {
 	String snippetId;
 	String commentId;
+	String password;
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	@Override
+	public String toString() {
+		return "DeleteCommentRequest [snippetId=" + snippetId + ", commentId=" + commentId + ", password=" + password
+				+ "]";
+	}
 	public String getSnippetId() {
 		return snippetId;
 	}
@@ -15,16 +27,10 @@ public class DeleteCommentRequest {
 	public void setCommentId(String commentId) {
 		this.commentId = commentId;
 	}
-	public DeleteCommentRequest(String snippetId, String commentId) {
-		this.snippetId = snippetId;
-		this.commentId = commentId;
-	}
+	
 	public DeleteCommentRequest() {
 		
 	}
-	@Override
-	public String toString() {
-		return "DeleteCommentRequest [snippetId=" + snippetId + ", commentId=" + commentId + "]";
-	}
+	
 	
 }

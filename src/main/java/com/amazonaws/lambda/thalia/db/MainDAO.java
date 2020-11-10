@@ -82,10 +82,11 @@ public class MainDAO {
         }
     }
     
-    public boolean deleteSnippet(String snippetId) throws Exception {
+    public boolean deleteSnippet(String snippetId,String snippetPassword) throws Exception {
         try {
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblSnippet + " WHERE SnippetId = ?;");
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblSnippet + " WHERE SnippetId = ? AND Password = ?;");
             ps.setString(1, snippetId);
+            ps.setString(21, snippetPassword);
             int numAffected = ps.executeUpdate();
             ps.close();
             
@@ -95,11 +96,12 @@ public class MainDAO {
             throw new Exception("Failed to delete snippet: " + e.getMessage());
         }
     }
-    public boolean deleteComment(String snippetId,String commentId) throws Exception {
+    public boolean deleteComment(String snippetId,String commentId,String password) throws Exception {
         try {
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblComment + " WHERE SnippetId = ? AND CommentId = ?;");
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblComment+","+tblSnippet + " WHERE tblComment.SnippetId = ? AND tblComment.CommentId = ? AND Password = ?;");
             ps.setString(1, snippetId);
             ps.setString(2, commentId);
+            ps.setString(3, password);
             int numAffected = ps.executeUpdate();
             ps.close();
             

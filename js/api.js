@@ -8,3 +8,5 @@ var update_snippet_info_url = base_url + "updateSnippetInfo";
 var update_snippet_text_url = base_url + "updateSnippetText";   
 var view_comment_url = base_url + "viewComments/";   
 var view_snippet_url = base_url + "viewSnippet/";   
+var delete_snippet_url = base_url + "deleteSnippet/";   
+var delete_comment_url = base_url + "deleteComment/";   
