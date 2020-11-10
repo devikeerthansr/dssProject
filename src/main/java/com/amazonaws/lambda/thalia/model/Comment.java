@@ -4,18 +4,20 @@ import java.sql.Date;
 
 public class Comment {
 	
-	public int commentId;
+	public String commentId;
 	public String commentText;
 	public Date commentDate;
-	public int region;
+	public int regionStart;
+	public int regionEnd;
 	public String snippetId;
 	
-	public Comment(int commentId, String commentText, Date commentDate, int region, String snippetId) {
+	public Comment(String commentId, String commentText, Date commentDate, int regionStart,int regionEnd, String snippetId) {
 		super();
 		this.commentId = commentId;
 		this.commentText = commentText;
 		this.commentDate = commentDate;
-		this.region = region;
+		this.regionStart = regionStart;
+		this.regionEnd = regionEnd;
 		this.snippetId = snippetId;
 	}
 	
@@ -33,10 +35,10 @@ public class Comment {
 		return false;  // not a Comment
 	}
 	
-	public int getCommentId() {
+	public String getCommentId() {
 		return commentId;
 	}
-	public void setCommentId(int commentId) {
+	public void setCommentId(String commentId) {
 		this.commentId = commentId;
 	}
 	public String getCommentText() {
@@ -51,11 +53,17 @@ public class Comment {
 	public void setCommentDate(Date commentDate) {
 		this.commentDate = commentDate;
 	}
-	public int getRegion() {
-		return region;
+	public int getRegionStart() {
+		return regionStart;
 	}
-	public void setRegion(int region) {
-		this.region = region;
+	public void setRegionStart(int regionStart) {
+		this.regionStart = regionStart;
+	}
+	public int getRegionEnd() {
+		return regionEnd;
+	}
+	public void setRegionEnd(int regionEnd) {
+		this.regionEnd = regionEnd;
 	}
 	public String getSnippetId() {
 		return snippetId;
@@ -66,6 +74,6 @@ public class Comment {
 	@Override
 	public String toString() {
 		return "Comment [commentId=" + commentId + ", commentText=" + commentText + ", commentDate=" + commentDate
-				+ ", region=" + region + ", snippetId=" + snippetId + "]";
+				+ ", regionStart=" + regionStart + ", regionEnd=" + regionEnd+ ", snippetId=" + snippetId + "]";
 	}
 }

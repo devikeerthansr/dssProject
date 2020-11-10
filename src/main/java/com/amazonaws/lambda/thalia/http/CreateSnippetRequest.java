@@ -10,7 +10,6 @@ public class CreateSnippetRequest {
 	public String snippetInfo;
 	public String snippetPassword;
 	public String codingLanguage;
-	public int numComments;
 	public Date createDate;
 	
 	public CreateSnippetRequest() {
@@ -26,7 +25,6 @@ public class CreateSnippetRequest {
 		this.snippetInfo = snippetInfo;
 		this.snippetPassword = snippetPassword;
 		this.codingLanguage = codingLanguage;
-		this.numComments = numComments;
 		this.createDate = createDate;
 	}
 
@@ -35,7 +33,7 @@ public class CreateSnippetRequest {
 	public String toString() {
 		return "CreateSnippetRequest [snippetId=" + snippetId + ", snippetText=" + snippetText + ", snippetInfo="
 				+ snippetInfo + ", snippetPassword=" + snippetPassword + ", codingLanguage=" + codingLanguage
-				+ ", numComments=" + numComments + ", createDate=" + createDate + "]";
+				+ ", createDate=" + createDate + "]";
 	}
 	
 	
@@ -68,12 +66,6 @@ public class CreateSnippetRequest {
 	}
 	public void setCodingLanguage(String codingLanguage) {
 		this.codingLanguage = codingLanguage;
-	}
-	public int getNumComments() {
-		return numComments;
-	}
-	public void setNumComments(int numComments) {
-		this.numComments = numComments;
 	}
 	public Date getCreateDate() {
 		return createDate;

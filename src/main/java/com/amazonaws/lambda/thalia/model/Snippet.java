@@ -9,7 +9,6 @@ public class Snippet {
 	public String snippetInfo;
 	public String snippetPassword;
 	public String codingLanguage;
-	public int numComments;
 	public Date createDate;
 	
 	public Snippet(String snippetId, String snippetText, String snippetInfo, String snippetPassword, String codingLanguage,
@@ -20,14 +19,12 @@ public class Snippet {
 		this.snippetInfo = snippetInfo;
 		this.snippetPassword = snippetPassword;
 		this.codingLanguage = codingLanguage;
-		this.createDate = createDate;
-		this.numComments = 0;
+		this.createDate = createDate;		
 	}
 	@Override
 	public String toString() {
 		return "Snippet [snippetId=" + snippetId + ", snippetText=" + snippetText + ", snippetInfo=" + snippetInfo
-				+ ", snippetPassword=" + snippetPassword + ", codingLanguage=" + codingLanguage + ", numComments="
-				+ numComments + ", createDate=" + createDate + "]";
+				+ ", snippetPassword=" + snippetPassword + ", codingLanguage=" + codingLanguage + ", createDate=" + createDate + "]";
 	}
 	/**
 	 * Equality of Constants determined by snippetId alone.
@@ -71,12 +68,6 @@ public class Snippet {
 	}
 	public void setCodingLanguage(String codingLanguage) {
 		this.codingLanguage = codingLanguage;
-	}
-	public int getNumComments() {
-		return numComments;
-	}
-	public void setNumComments(int numComments) {
-		this.numComments = numComments;
 	}
 	public Date getCreateDate() {
 		return createDate;

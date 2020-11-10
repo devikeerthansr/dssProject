@@ -15,9 +15,10 @@ public class CreateCommentHandler implements RequestHandler<CreateCommentRequest
 	@Override
 	public AllCommentsResponse handleRequest(CreateCommentRequest input, Context context) {
 		AllCommentsResponse response;
+		Comment comment = new Comment(input.commentId, input.commentText, input.commentDate, input.regionStart,input.regionEnd, input.snippetId); 
 		try {			
-				if (createComment(input.comment)) {
-					response = new AllCommentsResponse(getComments(input.comment.snippetId),200);
+				if (createComment(comment)) {
+					response = new AllCommentsResponse(getComments(comment.snippetId),200);
 				} else {
 					response = new AllCommentsResponse(null, 422,"Could not create a comment");
 				}
