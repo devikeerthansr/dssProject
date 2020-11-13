@@ -11,7 +11,7 @@ public class UpdateSnippetHandler implements RequestHandler<UpdateSnippetRequest
 	public UpdateSnippetResponse handleRequest(UpdateSnippetRequest input, Context context) {
 		UpdateSnippetResponse response;
 		try {			
-				if (updateSnippet(input.snippetId,input.snippetText)) {
+				if (updateSnippet(input.snippetId,input.snippetText,input.password,input.codingLanguage)) {
 					response = new UpdateSnippetResponse(200,"Update successful");
 				} else {
 					response = new UpdateSnippetResponse(422, "Update failed");
@@ -24,9 +24,9 @@ public class UpdateSnippetHandler implements RequestHandler<UpdateSnippetRequest
 		return response;
 	}
 	
-	boolean updateSnippet(String snippetId,String snippetText) throws Exception { 		
+	boolean updateSnippet(String snippetId,String snippetText,String password,String codingLanguage) throws Exception { 		
 		MainDAO dao = new MainDAO();
-		return dao.updateSnippet(snippetId,snippetText);		
+		return dao.updateSnippet(snippetId,snippetText,password,codingLanguage);		
 	}
 
 }

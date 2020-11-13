@@ -50,13 +50,15 @@ public class MainDAO {
         }
     }
     
-    public boolean updateSnippet(String snippetId,String snippetText) throws Exception {
+    public boolean updateSnippet(String snippetId,String snippetText,String password,String codingLanguage) throws Exception {
         try {
-        	String query = "UPDATE " + tblSnippet + " SET SnippetText=? WHERE SnippetId=?;";
+        	String query = "UPDATE " + tblSnippet + " SET SnippetText=?,CodingLanguage=? WHERE SnippetId=? AND Password=?;";
         	PreparedStatement ps = conn.prepareStatement(query);
         	
             ps.setString(1, snippetText);
-            ps.setString(2, snippetId);
+            ps.setString(2, codingLanguage);
+            ps.setString(3, snippetId);
+            ps.setString(4, password);
             int numAffected = ps.executeUpdate();
             ps.close();
             
