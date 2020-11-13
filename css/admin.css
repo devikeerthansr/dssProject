@@ -102,7 +102,7 @@ body {
 
 .content-comments{
     float: left;
-    width: 300px;
+    width: 370px;
     margin-left: 20px;
 }
 
@@ -154,6 +154,26 @@ body {
 }
 
 .snippet-id-content button:hover{
+    text-decoration: none;
+    background-color: #BFCFFE;
+    color: white;
+}
+
+.comment-id-content {
+	margin-top: 20px
+    padding-top: 5px;
+    text-align: center;
+}
+
+.comment-id-content button{
+    width: 110px;
+    height: 50px;
+    background-color: lightblue;
+    color: black;
+    border: 1px solid #001963;    
+}
+
+.comment-id-content button:hover{
     text-decoration: none;
     background-color: #BFCFFE;
     color: white;
