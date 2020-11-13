@@ -2,13 +2,15 @@ package com.amazonaws.lambda.thalia.http;
 
 public class DeleteSnippetRequest {
 	String snippetId;
+	String snippetPassword;
+	
 	public String getSnippetId() {
 		return snippetId;
 	}
 	public void setSnippetId(String snippetId) {
 		this.snippetId = snippetId;
 	}
-	String snippetPassword;
+	
 	public DeleteSnippetRequest() {
 		
 	}

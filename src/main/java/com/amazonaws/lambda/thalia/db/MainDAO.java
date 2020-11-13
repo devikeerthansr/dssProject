@@ -96,12 +96,11 @@ public class MainDAO {
             throw new Exception("Failed to delete snippet: " + e.getMessage());
         }
     }
-    public boolean deleteComment(String snippetId,String commentId,String password) throws Exception {
+    public boolean deleteComment(String snippetId,String commentId) throws Exception {
         try {
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblComment+","+tblSnippet + " WHERE tblComment.SnippetId = ? AND tblComment.CommentId = ? AND Password = ?;");
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblComment+","+tblSnippet + " WHERE tblComment.SnippetId = ? AND tblComment.CommentId = ?;");
             ps.setString(1, snippetId);
             ps.setString(2, commentId);
-            ps.setString(3, password);
             int numAffected = ps.executeUpdate();
             ps.close();
             
@@ -152,7 +151,7 @@ public class MainDAO {
         List<Snippet> allConstants = new ArrayList<>();
         try {
             Statement statement = conn.createStatement();
-            String query = "SELECT * FROM " + tblSnippet + ";";
+            String query = "SELECT * FROM " + tblSnippet +"ORDER BY TimeStamp DESC" +";";
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
@@ -172,7 +171,7 @@ public List<Comment> getAllComments(String snippetId) throws Exception {
         List<Comment> allComments = new ArrayList<>();
         try {
                  
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblComment + " WHERE SnippetId = ?;");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblComment + " WHERE SnippetId = ?"+"ORDER BY TimeStamp DEC"+";");
             ps.setString(1, snippetId);
             ResultSet resultSet = ps.executeQuery();
 
