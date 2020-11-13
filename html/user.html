@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Admin</title>
+    <title>User</title>
     <link href="../css/admin.css" type="text/css" rel="stylesheet" />
     
   </head>
@@ -50,11 +50,14 @@
         </div>
         <!--content middle Comments-->
         <div class="content-comments">
-          <h1>Comments</h1>
+          <div class="content-list-of-comments">
+          	<h1>List of Comments</h1>
+		  	<div class="list-of-comments-content-area" id="commentList"> </div>
+          </div>
           <div class="middle-content-area">
             <textarea id="comment" disabled="disabled"></textarea>
           </div>
-          <div class="snippet-id-content">
+          <div class="comment-id-content">
             <button id="add-comment">Add Comment</button>
             <button id="save-comment">Save Comment</button>
             <button id="delete-comment">Delete Comment</button>
@@ -78,8 +81,7 @@
 		<!--content left List of Snippets-->
         <div class="content-list-of-snippets">
           <h1>List of Snippets</h1>
-		  <div class="list-of-snippets-content-area" id="snippetList"> </div>
-          </div>
+		  <div class="list-of-snippets-content-area" id="snippetList"> </div>          
         </div>
       </div>
       <div class="clearfix"></div>
@@ -87,6 +89,7 @@
     <script type="text/javascript" src='../js/jquery.min.js'></script>
   	<script type='text/javascript' src='../js/api.js'></script>
 	<script type='text/javascript' src='../js/app.js'></script>
+	<script type='text/javascript' src='../js/comment.js'></script>
 	<script type='text/javascript' src='../js/createSnippet.js'></script>
   </body>
 </html>

@@ -87,6 +87,7 @@ function updateSnippetText() {
 		if (xhr.status == 200) 
 		{
 			console.log ("XHR:" + xhr.responseText);
+			showAlert("Snippet is updated!");
     	} 
 		else 
 		{
@@ -121,6 +122,7 @@ function updateSnippetInfo() {
 		if (xhr.status == 200) 
 		{
 			console.log ("XHR:" + xhr.responseText);
+			showAlert("Snippet info is updated!");
     	} 
 		else 
 		{
@@ -155,6 +157,28 @@ function updateSnippetList(resp){
 		snippetList.appendChild(snippetBtn);
 	}
 } 
+function updateCommentList(resp){
+	var i;
+	var commentList = document.getElementById('commentList');
+	
+	//clear commentList
+	commentList.innerHTML = '';
+	
+	var jsonArray = JSON.parse(resp).list;
+	
+	for (i in jsonArray) {
+		var commentText = jsonArray[i].commentText;
+	
+		// Button for snippet
+		var snippetBtn = document.createElement("BUTTON");
+		var t = document.createTextNode(commentText);
+		
+		snippetBtn.setAttribute("style","color:black;font-size:15px");
+		snippetBtn.appendChild(t);
+		
+		snippetList.appendChild(snippetBtn);
+	}
+}
 // Dynamically load list of snippets
 function loadSnippets() {
 	var xhr = new XMLHttpRequest();
@@ -177,6 +201,10 @@ function loadSnippets() {
 
 window.onload = function() {
   	loadSnippets();
+}
+
+function showAlert(message) {
+    alert(message);
 }
 
 

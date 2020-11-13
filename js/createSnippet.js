@@ -19,8 +19,7 @@ function handleCreateClick() {
 		  data["snippetInfo"] = document.getElementById("info-textarea").value;
           data["snippetPassword"] = response.ip; 
           data["codingLanguage"] = document.getElementById("languages").value;
-		  data["numComments"] = 0;
-		  
+		  		  
 		  $("#id-textarea").val(data["snippetId"]);
 		  
 		  var today = new Date(); 
@@ -42,6 +41,7 @@ function handleCreateClick() {
     if (xhr.readyState == XMLHttpRequest.DONE) {
     	 if (xhr.status == 200) {	      
 	      updateSnippetList(xhr.response);
+	      showAlert("New snippet is created!");
     	 } else {
     		  var js = JSON.parse(xhr.response);
 			  var err = js["response"];
