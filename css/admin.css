@@ -94,7 +94,8 @@ body {
     width: 97%;
     height: 95%;
     margin: 1%;  
-    text-align: justify;  
+    text-align: justify;
+    background-color: #FFFFF0;	
     font-size: 15px;
     padding: 2px;
 	overflow: scroll;
@@ -102,14 +103,13 @@ body {
 
 .content-comments{
     float: left;
-    width: 370px;
+    width: 300px;
     margin-left: 20px;
 }
 
 .middle-content-area{
-    height: 250px;
+    height: 400px;
     margin-top: 5px;
-    margin-left: 10px;
     border: 1px solid #001963;  
 }
 
@@ -118,15 +118,22 @@ body {
     width: 94%;
     height:95%;
     margin: 2%;  
-    text-align: justify;  
+    text-align: justify;
+    background-color: #FFFFF0;
     font-size: 15px;
     padding: 2px;
 }
 
 .content-snippet-info{
     float: right;
-    width: 200px;
+    width: 280px;
     margin-top: 5px;
+}
+
+.content-snippet-id{
+    float: right;
+    width: 280px;
+    margin-top: 20px;
 }
 
 .snippet-info-content-area{
@@ -136,7 +143,8 @@ body {
 
 .snippet-id-content-area{
     border: 1px solid #001963;
-    height: 50px;	
+    height: 50px;
+    margin-top: 5px;	
 }
 
 .snippet-id-content {
@@ -159,18 +167,45 @@ body {
     color: white;
 }
 
+.snippet-info-content-area textarea {
+    resize: none;
+    width: 94%;
+    height: 91%;
+    margin: 2%;  
+    text-align: justify;
+    background-color: #FFFFF0;	
+    font-size: 15px;
+    padding: 2px;
+}
+
+.snippet-id-content-area textarea {
+	resize: none;
+    width: 94%;
+    height: 68%;
+    margin: 2%;  
+    text-align: justify;
+    background-color: #FFFFF0;
+    font-size: 15px;
+    padding: 2px;
+}
+
+.comment-id-content-area{
+    border: 1px solid #001963;
+    height: 50px;	
+}
+
 .comment-id-content {
-	margin-top: 20px
     padding-top: 5px;
     text-align: center;
 }
 
 .comment-id-content button{
-    width: 110px;
+    width: 120px;
     height: 50px;
     background-color: lightblue;
     color: black;
-    border: 1px solid #001963;    
+    border: 1px solid #001963;
+    margin-bottom: 5px;
 }
 
 .comment-id-content button:hover{
@@ -179,17 +214,7 @@ body {
     color: white;
 }
 
-.snippet-info-content-area textarea {
-    resize: none;
-    width: 94%;
-    height: 91%;
-    margin: 2%;  
-    text-align: justify;  
-    font-size: 15px;
-    padding: 2px;
-}
-
-.snippet-id-content-area textarea {
+.comment-id-content-area textarea {
 	resize: none;
     width: 94%;
     height: 68%;
@@ -208,14 +233,22 @@ body {
 
 .content-list-of-snippets{
     float: left;
-    width: 480px;
-    margin-left: 10px;
+    width: 685px;
+    margin-top: 20px;
+}
+
+.content-list-of-comments{
+    float: left;
+    width: 595px;
+    margin-left: 20px;
+	margin-top: 20px;
 }
 
 .list-of-snippets-content-area{
     height: 500px;
     margin-top: 5px;
     border: 1px solid #001963;  
+	background-color: #FFFFF0;
     overflow: scroll;
 }
 
@@ -226,16 +259,11 @@ body {
  height: 50px;
 }
 
-.content-list-of-comments{
-    float: center;
-    width: 370px;
-    margin-left: 10px;
-}
-
 .list-of-comments-content-area{
-    height: 370px;
+    height: 500px;
     margin-top: 5px;
-    border: 1px solid #001963;  
+    border: 1px solid #001963;
+    background-color: #FFFFF0;
     overflow: scroll;
 }
 
