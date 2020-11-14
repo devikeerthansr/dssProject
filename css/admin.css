@@ -15,7 +15,17 @@ body {
     margin: 0 auto;
     background-color: white;
     border: 1px solid #001963;
-    min-height: 140vh;
+    min-height: 225vh;
+}
+
+#admin-container{
+    margin: 0 auto;
+    width: 1300px;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #001963;
+    min-height: 125vh;
 }
 
 .header-text{
@@ -69,6 +79,30 @@ body {
     color: white;
 }
 
+.admin-refresh-snippet-list-header{
+	float: left;
+    width: 500px;
+    text-align: right;
+    padding-top: 5px;
+}
+
+.admin-refresh-snippet-list-header button{
+    text-decoration: none;
+	float: left;
+    background-color: #3498DB;
+    width: 180px;
+    height: 50px;
+    color: white;
+	font-size: 16px;
+    border: 1px solid #001963;
+}
+
+.admin-refresh-snippet-list-header button:hover{
+    text-decoration: none;
+    background-color: #BFCFFE;
+    color: white;
+}
+
 .clearfix{
     overflow: auto;
 }
@@ -95,7 +129,7 @@ body {
     height: 95%;
     margin: 1%;  
     text-align: justify;
-    background-color: #FFFFF0;	
+    background-color: #F0FFFF;	
     font-size: 15px;
     padding: 2px;
 	overflow: scroll;
@@ -107,8 +141,20 @@ body {
     margin-left: 20px;
 }
 
+.content-admin-date{
+    float: left;
+    width: 300px;
+    margin-left: 20px;
+}
+
 .middle-content-area{
     height: 400px;
+    margin-top: 5px;
+    border: 1px solid #001963;  
+}
+
+.admin-date-content-area{
+    height: 325px;
     margin-top: 5px;
     border: 1px solid #001963;  
 }
@@ -119,8 +165,19 @@ body {
     height:95%;
     margin: 2%;  
     text-align: justify;
-    background-color: #FFFFF0;
+    background-color: #F0FFFF;
     font-size: 15px;
+    padding: 2px;
+}
+
+.content-admin-date textarea {
+    resize: none;
+    width: 94%;
+    height:95%;
+    margin: 2%;  
+    text-align: center;
+    background-color: #F0FFFF;
+    font-size: 30px;
     padding: 2px;
 }
 
@@ -173,7 +230,7 @@ body {
     height: 91%;
     margin: 2%;  
     text-align: justify;
-    background-color: #FFFFF0;	
+    background-color: #F0FFFF;	
     font-size: 15px;
     padding: 2px;
 }
@@ -183,8 +240,8 @@ body {
     width: 94%;
     height: 68%;
     margin: 2%;  
-    text-align: justify;
-    background-color: #FFFFF0;
+    text-align: center;
+    background-color: #F0FFFF;
     font-size: 15px;
     padding: 2px;
 }
@@ -237,6 +294,11 @@ body {
     margin-top: 20px;
 }
 
+.admin-content-list-of-snippets{
+    float: left;
+    width: 685px;
+}
+
 .content-list-of-comments{
     float: left;
     width: 595px;
@@ -248,7 +310,7 @@ body {
     height: 500px;
     margin-top: 5px;
     border: 1px solid #001963;  
-	background-color: #FFFFF0;
+	background-color: #F0FFFF;
     overflow: scroll;
 }
 
@@ -263,7 +325,7 @@ body {
     height: 500px;
     margin-top: 5px;
     border: 1px solid #001963;
-    background-color: #FFFFF0;
+    background-color: #F0FFFF;
     overflow: scroll;
 }
 
