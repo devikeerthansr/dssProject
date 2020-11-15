@@ -34,8 +34,6 @@ function handleCreateComment() {
       
     }
   };
-<<<<<<< HEAD
-=======
 }
 
 function updateCommentList(resp){
@@ -83,5 +81,4 @@ function loadComments(snippetId) {
 			  alert (err);
 		}
 	}
->>>>>>> branch 'master' of https://github.com/devikeerthansr/dssProject
 }
