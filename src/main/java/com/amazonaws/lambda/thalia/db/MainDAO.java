@@ -153,7 +153,7 @@ public class MainDAO {
         List<Snippet> allConstants = new ArrayList<>();
         try {
             Statement statement = conn.createStatement();
-            String query = "SELECT * FROM " + tblSnippet +"ORDER BY TimeStamp DESC" +";";
+            String query = "SELECT * FROM " + tblSnippet +" ORDER BY TimeStamp DESC" +";";
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
@@ -173,7 +173,7 @@ public List<Comment> getAllComments(String snippetId) throws Exception {
         List<Comment> allComments = new ArrayList<>();
         try {
                  
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblComment + " WHERE SnippetId = ?"+"ORDER BY TimeStamp DEC"+";");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblComment + " WHERE SnippetId = ?"+" ORDER BY TimeStamp DEC"+";");
             ps.setString(1, snippetId);
             ResultSet resultSet = ps.executeQuery();
 

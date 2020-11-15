@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-	
   <head>
-  	<meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" href="icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
     <title>Admin</title>
     <link href="../css/admin.css" type="text/css" rel="stylesheet" />
-    
   </head>
+  <style>
+	h1 {text-align: center;}
+  </style>
   <body>
-    <!-- container for whole page-->
-    <div id="container">
-      
+    <div id="admin-container">
+      <div class="header-text">
+	  <!--Snippet System - Admin Portal Label-->
+	  <h1>Snippet System - Admin Portal</h1>
+	    <!--Refresh Snippet List Button-->
+	    <div class="admin-refresh-snippet-list-header">
+          <button id="admin-refresh-snippet-list">Refresh Snippet List</button>
+        </div>
+		<!--Delete Snippet Button-->
+        <div class="create-new-snippet-header">
+          <button id="delete-snippet">Delete Snippet</button>
+        </div>
+      </div>
       <div class="clearfix"></div>
-      <!--content-->
       <div class="content">
-        
-        
-		<!--content left List of Snippets-->
-        <div class="content-list-of-snippets">
-          <h1>List of Snippets</h1>
+        <!--List of Snippets Box-->
+        <div class="admin-content-list-of-snippets">
+          <h1>List of Snippets (Recent to Oldest)</h1>
 		  <div class="list-of-snippets-content-area" id="snippetList"> </div>
           </div>
+        <!--Date Box-->
+        <div class="content-admin-date">
+          <h1>Date</h1>
+          <div class="admin-date-content-area">
+            <textarea id="date" disabled="disabled"></textarea>
+          </div>
+        </div>
+        <!--Snippet Info Box-->
+        <div class="content-snippet-info">
+          <h1>Snippet Info</h1>
+          <div class="snippet-info-content-area">
+            <textarea id="info-textarea" disabled="disabled"></textarea>
+          </div>
+        </div>
+		<!--Snippet ID Box-->
+        <div class="content-snippet-id">
+          <h1>Snippet ID</h1>
+          <div class="snippet-id-content-area" id="uniqueSnippetId">
+            <textarea id="id-textarea" disabled="disabled"></textarea>
+          </div>
+        </div>
         </div>
       </div>
       <div class="clearfix"></div>

@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-	
   <head>
-  	<meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" href="icon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
     <title>User</title>
     <link href="../css/admin.css" type="text/css" rel="stylesheet" />
-    
   </head>
+  <style>
+	h1 {text-align: center;}
+  </style>
   <body>
-    <!-- container for whole page-->
     <div id="container">
-      <!-- header content-->
       <div class="header-text">
+	    <!--Snippet System - User Portal Label-->
+	    <h1>Snippet System - User Portal</h1>
+		<!--Select Coding Language Label-->
 		<label for="languages">Select Coding Language:</label>
+		<!--Select Coding Language Dropdown-->
 		<select name="languages" id="languages">
 		  <optgroup>
 			<option value="java">Java</option>
@@ -31,58 +29,69 @@
 			<option value="other">Other</option>
 		  </optgroup>
 		</select>
-        <div class="create-new-snippet-header">
+        <!--Create New Snippet Button-->
+		<div class="create-new-snippet-header">
           <button id="creator-new-snippet">Create New Snippet</button>
         </div>
       </div>
       <div class="clearfix"></div>
-      <!--content-->
       <div class="content">
-        <!--contentleft Code Snippet-->
+        <!--Code Snippet Box-->
         <div class="content-code-snippet">
           <h1>Code Snippet</h1>
           <div class="left-content-area">
             <textarea disabled="disabled" id="snippet-textarea"></textarea>
           </div>
-          <div class="snippet-id-content">
+          <!--Save Snippet Button-->
+		  <!--Edit Snippet Button-->
+		  <!--Delete Snippet Button-->
+		  <div class="snippet-id-content">
             <button id="save-snippet">Save Snippet</button> <button id="edit-snippet">Edit Snippet</button> <button id="delete-snippet">Delete Snippet</button>
           </div>
         </div>
-        <!--content middle Comments-->
         <div class="content-comments">
-          <div class="content-list-of-comments">
-          	<h1>List of Comments</h1>
-		  	<div class="list-of-comments-content-area" id="commentList"> </div>
-          </div>
+		  <!--Comments Label-->
+          <h1>Comments</h1>
           <div class="middle-content-area">
             <textarea id="comment" disabled="disabled"></textarea>
           </div>
-          <div class="comment-id-content">
+          <!--Add Comment Button-->
+		  <!--Save Comment Button-->
+		  <!--Delete Comment Button-->
+		  <div class="comment-id-content">
             <button id="add-comment">Add Comment</button>
             <button id="save-comment">Save Comment</button>
             <button id="delete-comment">Delete Comment</button>
           </div>
         </div>
-        <!--content right Snippet Info-->
+        <!--Save Info Label-->
         <div class="content-snippet-info">
           <h1>Snippet Info</h1>
           <div class="snippet-info-content-area">
             <textarea id="info-textarea" disabled="disabled"></textarea>
           </div>
-          <div class="snippet-id-content"> <button id="save-info">Save Info</button> <button id="edit-info">Edit Info</button></div>
+          <!--Save Info Button-->
+		  <!--Edit Info Button-->
+		  <div class="snippet-id-content"> <button id="save-info">Save Info</button> <button id="edit-info">Edit Info</button></div>
         </div>
-		<!--content Snippet ID-->
-        <div class="content-snippet-info">
-          <h1>Snippet ID</h1>
+        <div class="content-snippet-id">
+          <!--Snippet ID Label-->
+		  <h1>Snippet ID</h1>
           <div class="snippet-id-content-area" id="uniqueSnippetId">
             <textarea id="id-textarea" disabled="disabled"></textarea>
           </div>
         </div>
-		<!--content left List of Snippets-->
-        <div class="content-list-of-snippets">
+        <!--List of Snippets Box-->
+		<div class="content-list-of-snippets">
           <h1>List of Snippets</h1>
           <button id="refresh-button" onclick="loadSnippets()">Refresh</button>
-		  <div class="list-of-snippets-content-area" id="snippetList"> </div>          
+		  <div class="list-of-snippets-content-area" id="snippetList"> </div>
+          </div>
+		<!--List of Comments Box-->
+		<div class="content-list-of-comments">
+          	<h1>List of Comments</h1>
+		  	<div class="list-of-comments-content-area" id="commentList"> </div>
+          </div>
         </div>
       </div>
       <div class="clearfix"></div>
