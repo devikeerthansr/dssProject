@@ -135,6 +135,38 @@ function updateSnippetInfo() {
   }
 }
 
+function requestSnippet(snippetId)
+{
+	console.log(snippetId);
+	
+	var xhr = new XMLHttpRequest();
+	
+	// send POST to get list of all snippets
+	xhr.open("GET", view_snippet_url + snippetId);
+	
+	// send request
+	xhr.send();
+	
+	// this will be called once response is received
+	xhr.onload = function() {
+		if(xhr.status == 200)
+		{
+			var resp = xhr.response;
+			
+			//Update snippet text
+			var snippetText = document.getElementById('snippet-textarea');
+			snippetText.value = resp.text;
+			
+			//Update snippet info
+			var snippetInfo = document.getElementById('info-textarea');
+			snippetInfo.value = resp.info;
+			
+			var idArea = document.getElementById('id-textarea');
+			idArea.value = resp.id;
+		}
+	}
+}
+
 function updateSnippetList(resp){
 	var i;
 	var snippetList = document.getElementById('snippetList');
@@ -153,6 +185,10 @@ function updateSnippetList(resp){
 		
 		snippetBtn.setAttribute("style","color:red;font-size:23px");
 		snippetBtn.appendChild(t);
+		
+		snippetBtn.onclick = function() { 
+			requestSnippet(snippetId+'');
+		};
 		
 		snippetList.appendChild(snippetBtn);
 	}
