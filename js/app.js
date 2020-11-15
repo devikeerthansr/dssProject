@@ -1,3 +1,5 @@
+var snippetTextBeingEdited = false;
+
 // Create a new snippet
 $("#creator-new-snippet").click(function(e){
    
@@ -37,8 +39,15 @@ $("#save-info").click(function(e){
 // Save snippet
 $("#save-snippet").click(function(e){
    if(!$("#snippet-textarea").val() == ""){
-	   handleCreateClick();
-	   updateSnippetText();
+      if (snippetTextBeingEdited == true)
+	  {
+		updateSnippetText();
+		snippetTextBeingEdited = false;
+	  }
+	  else
+	  {
+	    handleCreateClick();
+	  }
       $("#snippet-textarea").prop('disabled', true);
    } 
 });
@@ -51,6 +60,7 @@ $("#edit-info").click(function(e){
 // Edit snippet
 $("#edit-snippet").click(function(e){
    $("#snippet-textarea").prop('disabled', false);
+   snippetTextBeingEdited = true;
 });
 
 // Delete snippet
