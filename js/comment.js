@@ -34,4 +34,54 @@ function handleCreateComment() {
       
     }
   };
+<<<<<<< HEAD
+=======
+}
+
+function updateCommentList(resp){
+	var i;
+	var commentList = document.getElementById('commentList');
+	
+	//clear commentList
+	commentList.innerHTML = '';
+	
+	var jsonArray = JSON.parse(resp).list;
+	
+	for (i in jsonArray) {
+		var commentText = jsonArray[i].commentText;
+	
+		// Button for snippet
+		var commentBtn = document.createElement("BUTTON");
+		var t = document.createTextNode(commentText);
+		
+		commentBtn.setAttribute("style","color:black;font-size:15px");
+		commentBtn.appendChild(t);
+		
+		commentList.appendChild(snippetBtn);
+	}
+}
+
+// Dynamically load list of comments
+function loadComments(snippetId) {
+	var xhr = new XMLHttpRequest();
+	
+	// send POST to get list of all comments
+	xhr.open("GET", view_comment_url + snippetId);
+	
+	// send request
+	xhr.send();
+	
+	// this will be called once response is received
+	xhr.onload = function() {
+		if(xhr.status == 200)
+		{
+			var resp = xhr.response;
+			updateCommentList(resp);
+		} else {
+		    var js = JSON.parse(xhr.response);
+			  var err = js["response"];
+			  alert (err);
+		}
+	}
+>>>>>>> branch 'master' of https://github.com/devikeerthansr/dssProject
 }
