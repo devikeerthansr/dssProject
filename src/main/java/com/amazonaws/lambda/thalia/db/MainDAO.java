@@ -45,7 +45,7 @@ public class MainDAO {
             return snippet;
 
         } catch (Exception e) {
-        	e.printStackTrace();
+        	System.err.println("error in getting snippet"+":"+e.getMessage());
             throw new Exception("Failed in getting snippet: " + e.getMessage());
         }
     }

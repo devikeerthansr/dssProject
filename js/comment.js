@@ -36,25 +36,49 @@ function handleCreateComment() {
   };
 }
 
-function updateSnippetList(resp){
+function updateCommentList(resp){
 	var i;
-	var snippetList = document.getElementById('snippetList');
+	var commentList = document.getElementById('commentList');
 	
-	//clear snippetList
-	snippetList.innerHTML = '';
+	//clear commentList
+	commentList.innerHTML = '';
 	
 	var jsonArray = JSON.parse(resp).list;
 	
 	for (i in jsonArray) {
-		var snippetId = jsonArray[i].snippetId;
+		var commentText = jsonArray[i].commentText;
 	
 		// Button for snippet
-		var snippetBtn = document.createElement("BUTTON");
-		var t = document.createTextNode(snippetId);
+		var commentBtn = document.createElement("BUTTON");
+		var t = document.createTextNode(commentText);
 		
-		snippetBtn.setAttribute("style","color:red;font-size:23px");
-		snippetBtn.appendChild(t);
+		commentBtn.setAttribute("style","color:black;font-size:15px");
+		commentBtn.appendChild(t);
 		
-		snippetList.appendChild(snippetBtn);
+		commentList.appendChild(snippetBtn);
 	}
-} 
+}
+
+// Dynamically load list of comments
+function loadComments(snippetId) {
+	var xhr = new XMLHttpRequest();
+	
+	// send POST to get list of all comments
+	xhr.open("GET", view_comment_url + snippetId);
+	
+	// send request
+	xhr.send();
+	
+	// this will be called once response is received
+	xhr.onload = function() {
+		if(xhr.status == 200)
+		{
+			var resp = xhr.response;
+			updateCommentList(resp);
+		} else {
+		    var js = JSON.parse(xhr.response);
+			  var err = js["response"];
+			  alert (err);
+		}
+	}
+}

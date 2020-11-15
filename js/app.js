@@ -195,28 +195,7 @@ function updateSnippetList(resp){
 		snippetList.appendChild(snippetBtn);
 	}
 } 
-function updateCommentList(resp){
-	var i;
-	var commentList = document.getElementById('commentList');
-	
-	//clear commentList
-	commentList.innerHTML = '';
-	
-	var jsonArray = JSON.parse(resp).list;
-	
-	for (i in jsonArray) {
-		var commentText = jsonArray[i].commentText;
-	
-		// Button for snippet
-		var snippetBtn = document.createElement("BUTTON");
-		var t = document.createTextNode(commentText);
-		
-		snippetBtn.setAttribute("style","color:black;font-size:15px");
-		snippetBtn.appendChild(t);
-		
-		snippetList.appendChild(snippetBtn);
-	}
-}
+
 // Dynamically load list of snippets
 function loadSnippets() {
 	var xhr = new XMLHttpRequest();
