@@ -178,6 +178,10 @@ function updateSnippetList(resp){
 	
 	var jsonArray = JSON.parse(resp).list;
 	
+	var createClickHandler = function(arg) {
+  		return function() { requestSnippet(arg); };
+	}
+	
 	for (i in jsonArray) {
 		var snippetId = jsonArray[i].snippetId;
 	
@@ -188,9 +192,7 @@ function updateSnippetList(resp){
 		snippetBtn.setAttribute("style","color:red;font-size:23px");
 		snippetBtn.appendChild(t);
 		
-		snippetBtn.onclick = function() { 
-			requestSnippet(snippetId+'');
-		};
+		snippetBtn.onclick = createClickHandler(snippetId);
 		
 		snippetList.appendChild(snippetBtn);
 	}

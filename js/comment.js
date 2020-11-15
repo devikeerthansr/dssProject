@@ -35,26 +35,3 @@ function handleCreateComment() {
     }
   };
 }
-
-function updateSnippetList(resp){
-	var i;
-	var snippetList = document.getElementById('snippetList');
-	
-	//clear snippetList
-	snippetList.innerHTML = '';
-	
-	var jsonArray = JSON.parse(resp).list;
-	
-	for (i in jsonArray) {
-		var snippetId = jsonArray[i].snippetId;
-	
-		// Button for snippet
-		var snippetBtn = document.createElement("BUTTON");
-		var t = document.createTextNode(snippetId);
-		
-		snippetBtn.setAttribute("style","color:red;font-size:23px");
-		snippetBtn.appendChild(t);
-		
-		snippetList.appendChild(snippetBtn);
-	}
-} 
