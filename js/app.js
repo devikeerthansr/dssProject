@@ -137,12 +137,12 @@ function updateSnippetInfo() {
 
 function requestSnippet(snippetId)
 {
-	console.log(snippetId);
-	
 	var xhr = new XMLHttpRequest();
 	
 	// send POST to get list of all snippets
 	xhr.open("GET", view_snippet_url + snippetId);
+	
+	console.log(xhr.request);
 	
 	// send request
 	xhr.send();
@@ -163,6 +163,8 @@ function requestSnippet(snippetId)
 			
 			var idArea = document.getElementById('id-textarea');
 			idArea.value = resp.id;
+			
+			showAlert("Request snippet is updated!");
 		}
 	}
 }
