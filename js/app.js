@@ -212,6 +212,13 @@ function requestSnippet(snippetId)
 			var idArea = document.getElementById('id-textarea');
 			idArea.value = resp.id;
 			
+			$.get("https://ipinfo.io", function(response) { 
+	        	if(resp.password != response.ip)
+				{
+					document.getElementById('delete-snippet').style.visibility = 'hidden';
+				}
+	        }, "json")
+			
 			showAlert("Request snippet is updated!");
 		}
 	}
