@@ -100,6 +100,44 @@ function updateSnippetText() {
   }
 }
 
+// delete Snippet 
+function deleteSnippet() {
+	var xhr = new XMLHttpRequest();
+	
+    $.get("https://ipinfo.io", function(response) { 
+		var requestData = {};
+		requestData["id"] = document.getElementById("id-textarea").value;
+		requestData["password"] = response.ip;
+		
+		var js = JSON.stringify(requestData);
+		console.log("JS:" + js);
+
+		xhr.open("POST", delete_snippet_url, true);
+
+		// Send the collected data as JSON
+		xhr.send(js);
+	}, "json")
+
+	xhr.onloadend = function () {
+    console.log(xhr);
+    console.log(xhr.request);
+    if (xhr.readyState == XMLHttpRequest.DONE) {
+		if (xhr.status == 200) 
+		{
+			console.log ("XHR:" + xhr.responseText);
+			showAlert("Snippet is deleted!");
+			updateSnippetList(xhr.response);
+    	} 
+		else 
+		{
+			console.log("actual:" + xhr.responseText)
+			var js = JSON.parse(xhr.responseText);
+			var err = js["response"];
+			alert (err);
+		}
+    }
+  }
+}
 // Update Snippet Info
 function updateSnippetInfo() {
 	var xhr = new XMLHttpRequest();
