@@ -203,14 +203,14 @@ function requestSnippet(snippetId)
 			
 			//Update snippet text
 			var snippetText = document.getElementById('snippet-textarea');
-			snippetText.value = resp.text;
+			snippetText.value = resp.snippetText;
 			
 			//Update snippet info
 			var snippetInfo = document.getElementById('info-textarea');
-			snippetInfo.value = resp.info;
+			snippetInfo.value = resp.snippetInfo;
 			
 			var idArea = document.getElementById('id-textarea');
-			idArea.value = resp.id;
+			idArea.value = resp.snippetId;
 			
 			$.get("https://ipinfo.io", function(response) { 
 	        	if(resp.password != response.ip)
