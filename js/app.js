@@ -121,8 +121,8 @@ function deleteSnippet() {
 	
     $.get("https://ipinfo.io", function(response) { 
 		var requestData = {};
-		requestData["id"] = document.getElementById("id-textarea").value;
-		requestData["password"] = response.ip;
+		requestData["snippetId"] = document.getElementById("id-textarea").value;
+		requestData["snippetPassword"] = response.ip;
 		
 		var js = JSON.stringify(requestData);
 		console.log("JS:" + js);
@@ -221,9 +221,11 @@ function requestSnippet(snippetId)
 			idArea.value = resp.snippetId;
 			
 			$.get("https://ipinfo.io", function(response) { 
-	        	if(resp.password != response.ip)
+	        	if(resp.snippetPassword != response.ip)
 				{
 					document.getElementById('delete-snippet').style.visibility = 'hidden';
+				} else {
+					document.getElementById('delete-snippet').style.visibility = 'visible';
 				}
 	        }, "json")
 			

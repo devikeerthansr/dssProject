@@ -88,7 +88,7 @@ public class MainDAO {
         try {
             PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblSnippet + " WHERE SnippetId = ? AND Password = ?;");
             ps.setString(1, snippetId);
-            ps.setString(21, snippetPassword);
+            ps.setString(2, snippetPassword);
             int numAffected = ps.executeUpdate();
             ps.close();
             
