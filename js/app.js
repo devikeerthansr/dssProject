@@ -199,7 +199,7 @@ function requestSnippet(snippetId)
 	xhr.onload = function() {
 		if(xhr.status == 200)
 		{
-			var resp = xhr.response;
+			var resp = JSON.parse(xhr.response).snippet;
 			
 			//Update snippet text
 			var snippetText = document.getElementById('snippet-textarea');
