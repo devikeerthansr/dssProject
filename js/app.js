@@ -65,9 +65,7 @@ $("#edit-snippet").click(function(e){
 
 // Delete snippet
 $("#delete-snippet").click(function(e){
-   $("#snippet-textarea").val("");
-   $("#info-textarea").val("");
-   $("#id-textarea").val("");
+	deleteSnippet();   
 });
 
 // Update Snippet Text
@@ -136,6 +134,9 @@ function deleteSnippet() {
 		{
 			console.log ("XHR:" + xhr.responseText);
 			showAlert("Snippet is deleted!");
+			$("#snippet-textarea").val("");
+   			$("#info-textarea").val("");
+   			$("#id-textarea").val("");
 			updateSnippetList(xhr.response);
     	} 
 		else 
