@@ -76,8 +76,8 @@ function updateSnippetText() {
 	
     $.get("https://ipinfo.io", function(response) { 
 		var requestData = {};
-		requestData["id"] = document.getElementById("id-textarea").value;
-		requestData["text"] = document.getElementById("snippet-textarea").value;
+		requestData["snippetId"] = document.getElementById("id-textarea").value;
+		requestData["snippetText"] = document.getElementById("snippet-textarea").value;
 		requestData["password"] = response.ip;
 		requestData["codingLanguage"] = document.getElementById("languages").value;
 
@@ -152,8 +152,8 @@ function deleteSnippet() {
 function updateSnippetInfo() {
 	var xhr = new XMLHttpRequest();
 	var requestData = {};
-	requestData["id"] = document.getElementById("id-textarea").value;
-	requestData["info"] = document.getElementById("info-textarea").value;
+	requestData["snippetId"] = document.getElementById("id-textarea").value;
+	requestData["snippetInfo"] = document.getElementById("info-textarea").value;
     
 	var js = JSON.stringify(requestData);
 	console.log("JS:" + js);
