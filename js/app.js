@@ -8,6 +8,13 @@ $("#creator-new-snippet").click(function(e){
    
 });
 
+// Refresh current snippet
+$("#refresh-snippet").click(function(e){
+   if(!$("#id-textarea").val() == ""){
+      requestSnippet($("#id-textarea").val());
+   }     
+});
+
 // Add Comment
 $("#add-comment").click(function(e){
    if($("#comment").val() == ""){
