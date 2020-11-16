@@ -187,13 +187,13 @@ function requestSnippet(snippetId)
 {
 	var xhr = new XMLHttpRequest();
 	
-	// send POST to get list of all snippets
-	xhr.open("GET", view_snippet_url + snippetId);
-	
-	console.log(xhr.request);
-	
-	// send request
-	xhr.send();
+	var requestData = {};
+	requestData["snippetId"] = snippetId;
+	var js = JSON.stringify(requestData);
+	console.log("JS:" + js);
+    xhr.open("POST", view_snippet_url, true);
+	// Send the collected data as JSON
+	xhr.send(js);
 	
 	// this will be called once response is received
 	xhr.onload = function() {
@@ -247,7 +247,7 @@ function updateSnippetList(resp){
 		snippetBtn.setAttribute("style","color:red;font-size:23px");
 		snippetBtn.appendChild(t);
 		
-		snippetBtn.onclick = createClickHandler(snippetId);
+		snippetBtn.addEventListener('click',createClickHandler(snippetId));
 		
 		snippetList.appendChild(snippetBtn);
 	}
