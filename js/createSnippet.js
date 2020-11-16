@@ -40,7 +40,7 @@ function handleCreateClick() {
     console.log(xhr.request);
     if (xhr.readyState == XMLHttpRequest.DONE) {
     	 if (xhr.status == 200) {	      
-	      updateSnippetList(xhr.response);
+	      loadSnippets();
 	      showAlert("New snippet is created!");
     	 } else {
     		  var js = JSON.parse(xhr.response);
