@@ -17,7 +17,7 @@ public class GetSnippetHandler implements RequestHandler<GetSnippetRequest,GetSn
 				if (snippet != null) {
 					response = new GetSnippetResponse(snippet,200,"Success");
 				} else {
-					response = new GetSnippetResponse(null, 422,"Failed to get Snippet");
+					response = new GetSnippetResponse(null, 422,"Failed to get Snippet"+input.snippetId);
 				}
 			
 		} catch (Exception e) {
