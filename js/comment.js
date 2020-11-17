@@ -1,3 +1,5 @@
+var startPos = 0;
+var endPos = 1;
 function handleCreateComment() {  
   var xhr = new XMLHttpRequest();
 	var requestData = {};
@@ -5,10 +7,44 @@ function handleCreateComment() {
 	requestData["commentText"] = document.getElementById("comment").value;
 	var today = new Date(); 
     requestData["commentDate"] = today.toISOString();
-	requestData["regionStart"] = 0;
-	requestData["regionEnd"] = 1;
 	requestData["snippetId"] = document.getElementById("id-textarea").value;
+	var textarea = document.getElementById("comment");
+	        
+	textarea.onclick = function () {
+		var substr = textarea.value.substring(0,obj.selectionStart).split('\n');
+    	var row = substr.length;
+    
+    	// if selection spans over
+    	if(textarea.selectionStart != textarea.selectionEnd)
+    	{
+        	substr = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd).split('\n');
+        	row += substr.length - 1;
+        }
+        startPos = row;
+	};
+	textarea.onkeyup = function () {
+	var substr = textarea.value.substring(0,obj.selectionStart).split('\n');
+    	var row = substr.length;
+    
+    	// if selection spans over
+    	if(textarea.selectionStart != textarea.selectionEnd)
+    	{
+        	substr = textarea.value.substring(textarea.selectionStart, textarea.selectionEnd).split('\n');
+        	row += substr.length - 1;
+        }
+        endPos = row;
+	};
 	
+	
+	console.log(startPos);
+	console.log(endPos);
+	if(startPos == endPos){
+		showAlert("Select a part of snippet to create a comment!");
+		$("#comment").val("");
+		return;
+	}
+	requestData["regionStart"] = startPos;
+	requestData["regionEnd"] = endPos;
 	var js = JSON.stringify(requestData);
 	console.log("JS:" + js);
 
@@ -64,10 +100,13 @@ function loadComments(snippetId) {
 	var xhr = new XMLHttpRequest();
 	
 	// send POST to get list of all comments
-	xhr.open("GET", view_comment_url + snippetId);
-	
+	var requestData = {};
+	requestData["snippetId"] = snippetId;
+	var js = JSON.stringify(requestData);
+	console.log("JS:" + js);
+    xhr.open("POST", view_comments_url, true);
 	// send request
-	xhr.send();
+	xhr.send(js);
 	
 	// this will be called once response is received
 	xhr.onload = function() {

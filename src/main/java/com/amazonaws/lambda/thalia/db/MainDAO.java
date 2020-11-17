@@ -50,6 +50,29 @@ public class MainDAO {
         }
     }
     
+public Comment getComment(String snippetId,String commentId) throws Exception {
+        
+        try {
+        	Comment comment = null;
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblComment + " WHERE SnippetId=? AND CommentId=?;");
+            ps.setString(1,  snippetId);
+            ps.setString(2,  commentId);
+            ResultSet resultSet = ps.executeQuery();
+            
+            while (resultSet.next()) {
+            	comment = generateComment(resultSet);
+            }
+            resultSet.close();
+            ps.close();
+            
+            return comment;
+
+        } catch (Exception e) {
+        	System.err.println("error in getting comment"+":"+e.getMessage());
+            throw new Exception("Failed in getting comment: " + e.getMessage());
+        }
+    }
+    
     public boolean updateSnippet(String snippetId,String snippetText,String password,String codingLanguage) throws Exception {
         try {
         	String query = "UPDATE " + tblSnippet + " SET SnippetText=?,CodingLanguage=? WHERE SnippetId=? AND Password=?;";
@@ -186,7 +209,7 @@ public List<Comment> getAllComments(String snippetId) throws Exception {
             return allComments;
 
         } catch (Exception e) {
-            throw new Exception("Failed in getting snippets: " + e.getMessage());
+            throw new Exception("Failed in getting comments: " + e.getMessage());
         }
     }
     private Snippet generateSnippet(ResultSet resultSet) throws Exception {

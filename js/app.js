@@ -19,6 +19,8 @@ $("#refresh-snippet").click(function(e){
 $("#add-comment").click(function(e){
    if($("#comment").val() == ""){
       $("#comment").prop('disabled', false);
+      $("#snippet-textarea").prop('disabled', false); 
+      snippetTextBeingEdited == true;
    }
 });
 
@@ -26,6 +28,7 @@ $("#add-comment").click(function(e){
 $("#save-comment").click(function(e){
    if(!$("#comment").val() == ""){
       $("#comment").prop('disabled', true);
+      $("#snippet-textarea").prop('disabled', true); 
       handleCreateComment();
    }
 });
@@ -230,7 +233,8 @@ function requestSnippet(snippetId)
 				}
 	        }, "json")
 			
-			showAlert("Request snippet is updated!");
+			showAlert("Requested snippet is loaded!");
+			loadComments(snippetId)
 		}
 	}
 }
