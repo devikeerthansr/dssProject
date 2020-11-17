@@ -38,7 +38,12 @@ $("#delete-comment").click(function(e){
    $("#comment").val("");
 });
 
-
+// refresh comments
+$("#refresh-button-com").click(function(e){
+	if(!$("#id-textarea").val() == ""){
+   		loadComments(document.getElementById("id-textarea").value);
+   	}
+});
 // Save info 
 $("#save-info").click(function(e){
    if(!$("#info-textarea").val() == ""){
