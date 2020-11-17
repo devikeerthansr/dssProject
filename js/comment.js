@@ -55,7 +55,7 @@ function updateCommentList(resp){
 		commentBtn.setAttribute("style","color:black;font-size:15px");
 		commentBtn.appendChild(t);
 		
-		commentList.appendChild(snippetBtn);
+		commentList.appendChild(commentBtn);
 	}
 }
 

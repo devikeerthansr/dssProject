@@ -26,6 +26,7 @@ $("#add-comment").click(function(e){
 $("#save-comment").click(function(e){
    if(!$("#comment").val() == ""){
       $("#comment").prop('disabled', true);
+      handleCreateComment();
    }
 });
 

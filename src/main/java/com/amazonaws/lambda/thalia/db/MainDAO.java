@@ -121,7 +121,7 @@ public class MainDAO {
             ps.setString(3,  comment.commentText);
             ps.setInt(4,  comment.regionStart);
             ps.setInt(5,  comment.regionEnd);
-            ps.setString(5,  comment.snippetId);                        
+            ps.setString(6,  comment.snippetId);                        
             ps.execute();
             return true;
 
@@ -173,7 +173,7 @@ public List<Comment> getAllComments(String snippetId) throws Exception {
         List<Comment> allComments = new ArrayList<>();
         try {
                  
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblComment + " WHERE SnippetId = ?"+" ORDER BY TimeStamp DEC"+";");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM " + tblComment + " WHERE SnippetId = ?"+" ORDER BY TimeStamp DESC" +";");
             ps.setString(1, snippetId);
             ResultSet resultSet = ps.executeQuery();
 

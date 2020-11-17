@@ -24,7 +24,7 @@ public class CreateCommentHandler implements RequestHandler<CreateCommentRequest
 				}
 			
 		} catch (Exception e) {
-			response = new AllCommentsResponse(null, 400,"Could not create a comment");
+			response = new AllCommentsResponse(null, 400,"Could not create a comment:"+e.getMessage());
 		}
 
 		return response;
