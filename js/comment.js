@@ -80,9 +80,13 @@ function updateCommentList(resp){
 	commentList.innerHTML = '';
 	
 	var jsonArray = JSON.parse(resp).list;
-	
+	var createCommentClickHandler = function(arg1,arg2) {
+  		return function() { requestComment(arg1,arg2); };
+	}
 	for (i in jsonArray) {
 		var commentText = jsonArray[i].commentText;
+		var commentId = jsonArray[i].commentId;
+		var snippetId = jsonArray[i].snippetId;
 	
 		// Button for snippet
 		var commentBtn = document.createElement("BUTTON");
@@ -90,11 +94,38 @@ function updateCommentList(resp){
 		
 		commentBtn.setAttribute("style","color:black;font-size:15px");
 		commentBtn.appendChild(t);
-		
+		commentBtn.addEventListener('click',createCommentClickHandler(snippetId,commentId));
 		commentList.appendChild(commentBtn);
 	}
 }
 
+function requestComment(snippetId,commentId)
+{
+	var xhr = new XMLHttpRequest();
+	
+	var requestData = {};
+	requestData["snippetId"] = snippetId;
+	requestData["commentId"] = commentId;
+	var js = JSON.stringify(requestData);
+	console.log("JS:" + js);
+    xhr.open("POST", view_comment_url, true);
+	// Send the collected data as JSON
+	xhr.send(js);
+	
+	// this will be called once response is received
+	xhr.onload = function() {
+		if(xhr.status == 200)
+		{
+			var resp = JSON.parse(xhr.response).comment;
+			
+			//Update snippet text
+			var commentText = document.getElementById('comment');
+			commentText.value = resp.commentText+"\n Created on:"+resp.commentDate;			
+							
+			showAlert("Requested comment is loaded!");			
+		}
+	}
+}
 // Dynamically load list of comments
 function loadComments(snippetId) {
 	var xhr = new XMLHttpRequest();
