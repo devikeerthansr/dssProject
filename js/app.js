@@ -17,11 +17,9 @@ $("#refresh-snippet").click(function(e){
 
 // Add Comment
 $("#add-comment").click(function(e){
-   if($("#comment").val() == ""){
       $("#comment").prop('disabled', false);
       $("#snippet-textarea").prop('disabled', false); 
       snippetTextBeingEdited == true;
-   }
 });
 
 // Save comment
@@ -153,6 +151,8 @@ function deleteSnippet() {
 			$("#snippet-textarea").val("");
    			$("#info-textarea").val("");
    			$("#id-textarea").val("");
+   			$("#comment").val("");
+   			document.getElementById('commentList').innerHTML = '';
 			updateSnippetList(xhr.response);
     	} 
 		else 
@@ -237,7 +237,7 @@ function requestSnippet(snippetId)
 					document.getElementById('delete-snippet').style.visibility = 'visible';
 				}
 	        }, "json")
-			
+			$("#comment").val("");
 			showAlert("Requested snippet is loaded!");
 			loadComments(snippetId)
 		}
