@@ -152,7 +152,10 @@ function deleteSnippet() {
    			$("#info-textarea").val("");
    			$("#id-textarea").val("");
    			$("#comment").val("");
-   			document.getElementById('commentList').innerHTML = '';
+			if (document.getElementById('commentList') != null)
+			{
+			   document.getElementById('commentList').innerHTML = '';
+			}
 			updateSnippetList(xhr.response);
     	} 
 		else 
@@ -220,7 +223,10 @@ function requestSnippet(snippetId)
 			
 			//Update snippet text
 			var snippetText = document.getElementById('snippet-textarea');
-			snippetText.value = resp.snippetText;
+			if (snippetText != null)
+			{
+			   snippetText.value = resp.snippetText;
+			}
 			
 			//Update snippet info
 			var snippetInfo = document.getElementById('info-textarea');
@@ -233,13 +239,23 @@ function requestSnippet(snippetId)
 	        	if(resp.snippetPassword != response.ip)
 				{
 					document.getElementById('delete-snippet').style.visibility = 'hidden';
-				} else {
+				}			
+				else 
+				{
 					document.getElementById('delete-snippet').style.visibility = 'visible';
 				}
+				
+				if (document.getElementById('admin-container'))
+			    {
+					document.getElementById('delete-snippet').style.visibility = 'visible';
+				}	
 	        }, "json")
 			$("#comment").val("");
 			showAlert("Requested snippet is loaded!");
-			loadComments(snippetId)
+			if (typeof loadComments !== 'undefined')
+			{
+				loadComments(snippetId)
+			}
 		}
 	}
 }
@@ -300,6 +316,3 @@ window.onload = function() {
 function showAlert(message) {
     alert(message);
 }
-
-
-
