@@ -130,7 +130,11 @@ function deleteSnippet() {
 		var requestData = {};
 		requestData["snippetId"] = document.getElementById("id-textarea").value;
 		requestData["snippetPassword"] = response.ip;
-		
+		if(document.title == "Admin"){
+		 requestData["isAdmin"] = TRUE;
+		} else {
+		 requestData["isAdmin"] = FALSE;
+		}
 		var js = JSON.stringify(requestData);
 		console.log("JS:" + js);
 
