@@ -8,6 +8,10 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.highlight { 
+	background-color: yellow; 
+}
+
 #container{
     margin: 0 auto;
     width: 1300px;
@@ -26,6 +30,10 @@ body {
     background-color: white;
     border: 1px solid #001963;
     min-height: 125vh;
+}
+
+.highlight {
+  background-color: yellow;
 }
 
 .header-text{
@@ -123,7 +131,7 @@ body {
     height: 400px;
 }
 
-.left-content-area textarea {
+#snippet-textarea {
     resize: none;
     width: 92.5%;
     height: 94%;
@@ -133,6 +141,7 @@ body {
     font-size: 15px;
     padding: 2px;
 	overflow: scroll;
+	white-space: pre-wrap;
 
     background: url(http://i.imgur.com/2cOaJ.png);
     background-attachment: local;

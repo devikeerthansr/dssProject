@@ -52,7 +52,7 @@ $("#save-info").click(function(e){
 
 // Save snippet
 $("#save-snippet").click(function(e){
-   if(!$("#snippet-textarea").val() == ""){
+   if(!$("#snippet-textarea").text() == ""){
       if (snippetTextBeingEdited == true)
 	  {
 		updateSnippetText();
@@ -89,7 +89,7 @@ function updateSnippetText() {
     $.get("https://ipinfo.io", function(response) { 
 		var requestData = {};
 		requestData["snippetId"] = document.getElementById("id-textarea").value;
-		requestData["snippetText"] = document.getElementById("snippet-textarea").value;
+		requestData["snippetText"] = document.getElementById("snippet-textarea").innerText;
 		requestData["password"] = response.ip;
 		requestData["codingLanguage"] = document.getElementById("languages").value;
 
@@ -148,7 +148,7 @@ function deleteSnippet() {
 		{
 			console.log ("XHR:" + xhr.responseText);
 			showAlert("Snippet is deleted!");
-			$("#snippet-textarea").val("");
+			$("#snippet-textarea").text("");
    			$("#info-textarea").val("");
    			$("#id-textarea").val("");
    			$("#comment").val("");
@@ -225,7 +225,7 @@ function requestSnippet(snippetId)
 			var snippetText = document.getElementById('snippet-textarea');
 			if (snippetText != null)
 			{
-			   snippetText.value = resp.snippetText;
+			   snippetText.textContent = resp.snippetText;
 			}
 			
 			//Update snippet info

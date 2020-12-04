@@ -15,7 +15,7 @@ function handleCreateClick() {
   $.get("https://ipinfo.io", function(response) { 
 		  var data = {};
 		  data["snippetId"] = makeid(8);
-		  data["snippetText"] = document.getElementById("snippet-textarea").value;
+		  data["snippetText"] = document.getElementById("snippet-textarea").innerText;
 		  data["snippetInfo"] = document.getElementById("info-textarea").value;
           data["snippetPassword"] = response.ip; 
           data["codingLanguage"] = document.getElementById("languages").value;
@@ -48,7 +48,7 @@ function handleCreateClick() {
 			  alert (err);
     	 }
     } else {
-      
+      alert( 'bad' );
     }
   };
 }
