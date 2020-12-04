@@ -130,7 +130,11 @@ function deleteSnippet() {
 		var requestData = {};
 		requestData["snippetId"] = document.getElementById("id-textarea").value;
 		requestData["snippetPassword"] = response.ip;
-		
+		if(document.title == "Admin"){
+		 requestData["isAdmin"] = TRUE;
+		} else {
+		 requestData["isAdmin"] = FALSE;
+		}
 		var js = JSON.stringify(requestData);
 		console.log("JS:" + js);
 
@@ -275,13 +279,17 @@ function updateSnippetList(resp){
 	
 	for (i in jsonArray) {
 		var snippetId = jsonArray[i].snippetId;
+		var createDate = jsonArray[i].createDate;
 	
 		// Button for snippet
 		var snippetBtn = document.createElement("BUTTON");
 		var t = document.createTextNode(snippetId);
-		
+		var date = document.createTextNode(createDate);
+
 		snippetBtn.setAttribute("style","color:red;font-size:23px");
 		snippetBtn.appendChild(t);
+		snippetBtn.appendChild( document.createTextNode('\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0'));
+		snippetBtn.appendChild(date);
 		
 		snippetBtn.addEventListener('click',createClickHandler(snippetId));
 		

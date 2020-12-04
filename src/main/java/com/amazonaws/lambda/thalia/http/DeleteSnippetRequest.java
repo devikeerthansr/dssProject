@@ -3,7 +3,14 @@ package com.amazonaws.lambda.thalia.http;
 public class DeleteSnippetRequest {
 	String snippetId;
 	String snippetPassword;
+	boolean isAdmin;
 	
+	public boolean isAdmin() {
+		return isAdmin;
+	}
+	public void setAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
 	public String getSnippetId() {
 		return snippetId;
 	}
@@ -14,9 +21,10 @@ public class DeleteSnippetRequest {
 	public DeleteSnippetRequest() {
 		
 	}
-	public DeleteSnippetRequest(String snippetId, String snippetPassword) {
+	public DeleteSnippetRequest(String snippetId, String snippetPassword,boolean isAdmin) {
 		this.snippetId = snippetId;
 		this.snippetPassword = snippetPassword;
+		this.isAdmin = isAdmin;
 	}
 	public String getSnippetPassword() {
 		return snippetPassword;
@@ -26,9 +34,8 @@ public class DeleteSnippetRequest {
 	}
 	@Override
 	public String toString() {
-		return "DeleteSnippetRequest [snippetId=" + snippetId + ", snippetPassword=" + snippetPassword + "]";
-	}
-	
-	
+		return "DeleteSnippetRequest [snippetId=" + snippetId + ", snippetPassword=" + snippetPassword + ", isAdmin="
+				+ isAdmin + "]";
+	}	
 
 }
