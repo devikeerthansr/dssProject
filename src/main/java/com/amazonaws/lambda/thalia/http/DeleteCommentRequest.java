@@ -4,6 +4,11 @@ public class DeleteCommentRequest {
 	String snippetId;
 	String commentId;	
 	
+	public DeleteCommentRequest(String snippetId, String commentId) {
+		this.snippetId = snippetId;
+		this.commentId = commentId;
+	}
+	
 	@Override
 	public String toString() {
 		return "DeleteCommentRequest [snippetId=" + snippetId + ", commentId=" + commentId + "]";
