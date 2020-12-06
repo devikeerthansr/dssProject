@@ -41,8 +41,16 @@ function handleCreateComment() {
     console.log(xhr.request);
     if (xhr.readyState == XMLHttpRequest.DONE) {
     	 if (xhr.status == 200) {
+    	 
+    	  document.getElementById("comment").value = "";
+    	 
     	  highlight(textStartIdx, textEndIdx, requestData["commentId"]);
+    	  
 	      updateCommentList(xhr.response);
+	      
+	      var commentText = document.getElementById('view-comment-area');
+		  commentText.value = requestData.commentText+"\n Created on:"+requestData.commentDate;	
+	      
 	      showAlert("New comment is created!");
     	 } else {
     		  var js = JSON.parse(xhr.response);
@@ -104,7 +112,7 @@ function requestComment(snippetId,commentId)
 			var resp = JSON.parse(xhr.response).comment;
 			
 			//Update snippet text
-			var commentText = document.getElementById('comment');
+			var commentText = document.getElementById('view-comment-area');
 			commentText.value = resp.commentText+"\n Created on:"+resp.commentDate;	
 			
 			var deleteCommentClickHandler = function(arg1,arg2) {
