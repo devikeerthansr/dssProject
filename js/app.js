@@ -33,7 +33,7 @@ $("#save-comment").click(function(e){
 
 // Delete comment
 $("#delete-comment").click(function(e){
-   $("#comment").val("");
+   $("#view-comment-area").val("");
 });
 
 // refresh comments
@@ -156,6 +156,7 @@ function deleteSnippet() {
    			$("#info-textarea").val("");
    			$("#id-textarea").val("");
    			$("#comment").val("");
+   			$("#view-comment-area").val("");
 			if (document.getElementById('commentList') != null)
 			{
 			   document.getElementById('commentList').innerHTML = '';
@@ -255,6 +256,7 @@ function requestSnippet(snippetId)
 				}	
 	        }, "json")
 			$("#comment").val("");
+			$("#view-comment-area").val("");
 			showAlert("Requested snippet is loaded!");
 			if (typeof loadComments !== 'undefined')
 			{
