@@ -8,10 +8,10 @@ public class UpdateSnippetInfoRequest {
 		
 	}
 
-	public UpdateSnippetInfoRequest(String snippetId, String snippetText) {
+	public UpdateSnippetInfoRequest(String snippetId, String snippetInfo) {
 		super();
 		this.snippetId = snippetId;
-		this.snippetInfo = snippetText;
+		this.snippetInfo = snippetInfo;
 	}
 
 	@Override

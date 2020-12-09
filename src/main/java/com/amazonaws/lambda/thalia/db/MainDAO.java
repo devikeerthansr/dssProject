@@ -136,7 +136,7 @@ public Comment getComment(String snippetId,String commentId) throws Exception {
     }
     public boolean deleteComment(String snippetId,String commentId) throws Exception {
         try {
-            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblComment + " WHERE tblComment.SnippetId = ? AND tblComment.CommentId = ?;");
+            PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblComment + " WHERE SnippetId = ? AND CommentId = ?;");
             ps.setString(1, snippetId);
             ps.setString(2, commentId);
             int numAffected = ps.executeUpdate();

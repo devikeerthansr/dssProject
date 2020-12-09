@@ -18,13 +18,12 @@ public class DeleteSnippetHandlerTest extends LambdaTest {
 
     @Test
     public void testCreateAndDeleteConstant() {
-    	// create constant
-        int rnd = (int) (Math.random() * 1000000);
+    	        
         CreateSnippetRequest ccr = new CreateSnippetRequest("abcd", "some code", "info", "120.26.56.23",
     			"Java", 0, new Date(123456));
         
         SingleSnippetResponse resp = new CreateSnippetHandler().handleRequest(ccr, createContext("createSnippet"));
-        Assert.assertEquals("x" + rnd, resp.response);
+        Assert.assertEquals(200, resp.response);
         
         // now delete
         DeleteSnippetRequest dcr = new DeleteSnippetRequest("abcd", "120.26.56.23",false);
