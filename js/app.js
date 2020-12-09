@@ -15,6 +15,11 @@ $("#refresh-snippet").click(function(e){
    }     
 });
 
+// Refresh Snippet List for Admin
+$("#admin-refresh-snippet-list").click(function(e){
+   loadSnippets();
+});
+
 // Add Comment
 $("#add-comment").click(function(e){
       $("#comment").prop('disabled', false);
