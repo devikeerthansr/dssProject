@@ -39,9 +39,16 @@ function handleCreateClick() {
     console.log(xhr);
     console.log(xhr.request);
     if (xhr.readyState == XMLHttpRequest.DONE) {
-    	 if (xhr.status == 200) {	      
-	      loadSnippets();
-	      showAlert("New snippet is created!");
+    	 if (xhr.status == 200) {	
+    	    $("#comment").val("");
+   			$("#view-comment-area").val("");
+			if (document.getElementById('commentList') != null)
+			{
+			   document.getElementById('commentList').innerHTML = '';
+			}  
+			    
+	        loadSnippets();
+	        showAlert("New snippet is created!");
     	 } else {
     		  var js = JSON.parse(xhr.response);
 			  var err = js["response"];

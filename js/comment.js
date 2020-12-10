@@ -27,8 +27,6 @@ function handleCreateComment() {
 	requestData["regionEnd"] = textEndIdx;
 	var js = JSON.stringify(requestData);
 	console.log("JS:" + js);
-	
-	alert(js);
 
 	xhr.open("POST", create_comment_url, true);
 
@@ -169,7 +167,6 @@ function deleteComment(snippetId,commentId)
 		if(xhr.status == 200)
 		{;
 			var resp = xhr.response;
-			alert(resp);
 			updateCommentList(resp);
 			
 			commentText.value = "";	
