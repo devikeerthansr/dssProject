@@ -16,7 +16,7 @@ public class DeleteSnippetHandler implements RequestHandler<DeleteSnippetRequest
 		MainDAO dao = new MainDAO();	
 		
 		try {
-			if(req.isAdmin()) {
+			if(req.getIsAdmin()) {
 				if (dao.deleteSnippetAdmin(req.getSnippetId())) {
 					response = new AllSnippetsResponse(getSnippets(), 200);
 				} else {

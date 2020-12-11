@@ -4,27 +4,11 @@ public class DeleteSnippetRequest {
 	String snippetId;
 	String snippetPassword;
 	boolean isAdmin;
-	
-	public boolean isAdmin() {
-		return isAdmin;
-	}
-	public void setAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
-	}
 	public String getSnippetId() {
 		return snippetId;
 	}
 	public void setSnippetId(String snippetId) {
 		this.snippetId = snippetId;
-	}
-	
-	public DeleteSnippetRequest() {
-		
-	}
-	public DeleteSnippetRequest(String snippetId, String snippetPassword,boolean isAdmin) {
-		this.snippetId = snippetId;
-		this.snippetPassword = snippetPassword;
-		this.isAdmin = isAdmin;
 	}
 	public String getSnippetPassword() {
 		return snippetPassword;
@@ -32,10 +16,27 @@ public class DeleteSnippetRequest {
 	public void setSnippetPassword(String snippetPassword) {
 		this.snippetPassword = snippetPassword;
 	}
+	public boolean getIsAdmin() {
+		return isAdmin;
+	}
+	public void setIsAdmin(boolean isAdmin) {
+		this.isAdmin = isAdmin;
+	}
+	public DeleteSnippetRequest(String snippetId, String snippetPassword, boolean isAdmin) {
+		super();
+		this.snippetId = snippetId;
+		this.snippetPassword = snippetPassword;
+		this.isAdmin = isAdmin;
+	}
+	public DeleteSnippetRequest() {
+		
+	}
 	@Override
 	public String toString() {
 		return "DeleteSnippetRequest [snippetId=" + snippetId + ", snippetPassword=" + snippetPassword + ", isAdmin="
 				+ isAdmin + "]";
-	}	
+	}
+	
+
 
 }

@@ -9,7 +9,7 @@ public class TestDeleteSnippetRequest {
 	@Test
 	public void test() {
 		DeleteSnippetRequest dcr = new DeleteSnippetRequest();
-		dcr.setAdmin(true);
+		dcr.setIsAdmin(true);
 		assertEquals(true, dcr.isAdmin);
 		dcr.setSnippetId("snippetId");
 		assertEquals("snippetId", dcr.snippetId);
@@ -17,7 +17,7 @@ public class TestDeleteSnippetRequest {
 		assertEquals("120.35.56.78", dcr.snippetPassword);
 		
 		DeleteSnippetRequest dcr2 = new DeleteSnippetRequest("snippetId","120.35.56.78",true);
-		assertEquals(true, dcr.isAdmin());		
+		assertEquals(true, dcr.getIsAdmin());		
 		assertEquals("snippetId", dcr.getSnippetId());		
 		assertEquals("120.35.56.78", dcr.getSnippetPassword());
 		
