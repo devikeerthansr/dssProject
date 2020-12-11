@@ -1,4 +1,4 @@
-var base_url = "https://yifbc2r2mf.execute-api.us-east-2.amazonaws.com/beta/";
+var base_url = "https://yifbc2r2mf.execute-api.us-east-2.amazonaws.com/final/";
 
 
 var list_url    = base_url + "admin/snippetList";   

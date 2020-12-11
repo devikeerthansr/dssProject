@@ -12,7 +12,7 @@ public class DeleteSnippetHandler implements RequestHandler<DeleteSnippetRequest
 	@Override
 	public AllSnippetsResponse handleRequest(DeleteSnippetRequest req, Context context) {
 		AllSnippetsResponse response = null;
-		
+		System.err.println("request:"+":"+req);
 		MainDAO dao = new MainDAO();	
 		
 		try {
@@ -20,13 +20,13 @@ public class DeleteSnippetHandler implements RequestHandler<DeleteSnippetRequest
 				if (dao.deleteSnippetAdmin(req.getSnippetId())) {
 					response = new AllSnippetsResponse(getSnippets(), 200);
 				} else {
-					response = new AllSnippetsResponse(null, 422, "Unable to delete Snippet.");
+					response = new AllSnippetsResponse(null, 422, "admin:Unable to delete Snippet.");
 				}
 			} else {
 				if (dao.deleteSnippet(req.getSnippetId(),req.getSnippetPassword())) {
 					response = new AllSnippetsResponse(getSnippets(), 200);
 				} else {
-					response = new AllSnippetsResponse(null, 422, "Unable to delete Snippet.");
+					response = new AllSnippetsResponse(null, 422, "user:Unable to delete Snippet.");
 				}
 			}
 			

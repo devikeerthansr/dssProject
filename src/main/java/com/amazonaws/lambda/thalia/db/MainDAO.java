@@ -114,11 +114,10 @@ public Comment getComment(String snippetId,String commentId) throws Exception {
             ps.setString(2, snippetPassword);
             int numAffected = ps.executeUpdate();
             ps.close();
-            
             return (numAffected == 1);
 
         } catch (Exception e) {
-            throw new Exception("Failed to delete snippet: " + e.getMessage());
+            throw new Exception("Failed to delete snippet: " + e);
         }
     }
     public boolean deleteSnippetAdmin(String snippetId) throws Exception {
@@ -126,12 +125,11 @@ public Comment getComment(String snippetId,String commentId) throws Exception {
             PreparedStatement ps = conn.prepareStatement("DELETE FROM " + tblSnippet + " WHERE SnippetId = ?;");
             ps.setString(1, snippetId);
             int numAffected = ps.executeUpdate();
-            ps.close();
-            
+            ps.close();            
             return (numAffected == 1);
 
         } catch (Exception e) {
-            throw new Exception("Failed to delete snippet: " + e.getMessage());
+            throw new Exception("Failed to delete snippet for admin: " + e);
         }
     }
     public boolean deleteComment(String snippetId,String commentId) throws Exception {
