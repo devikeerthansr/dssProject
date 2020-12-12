@@ -114,7 +114,10 @@ function requestComment(snippetId,commentId)
 			commentText.value = resp.commentText+"\n Created on:"+resp.commentDate;	
 			
 			var deleteCommentClickHandler = function(arg1,arg2) {
-  				return function() { deleteComment(arg1,arg2); };
+				return function() { 
+				$("#view-comment-area").val("");
+  				deleteComment(arg1,arg2); 
+  				};
 			}
 			
 			// Button for delete comment
