@@ -16,7 +16,7 @@ import com.amazonaws.lambda.thalia.http.DeleteCommentRequest;
 public class DeleteCommentHandlerTest extends LambdaTest {
 
     @Test
-    public void testCreateAndDeleteConstant() {
+    public void testCreate() {
     	
         CreateCommentRequest ccr = new CreateCommentRequest("abcd", "test comment", new Date(123456), 0, 1,
     			"2");
@@ -24,6 +24,11 @@ public class DeleteCommentHandlerTest extends LambdaTest {
         AllCommentsResponse resp = new CreateCommentHandler().handleRequest(ccr, createContext("createComment"));
         Assert.assertEquals(200, resp.statusCode);
         
+     }
+   
+    @Test
+    public void testCreateAndDeleteConstant() {    	
+            
         // now delete
         DeleteCommentRequest dcr = new DeleteCommentRequest("2", "abcd");
         AllCommentsResponse d_resp = new DeleteCommentHandler().handleRequest(dcr, createContext("deleteComment"));
@@ -33,5 +38,4 @@ public class DeleteCommentHandlerTest extends LambdaTest {
         d_resp = new DeleteCommentHandler().handleRequest(dcr, createContext("deleteComment"));
         Assert.assertEquals(422, d_resp.statusCode);
     }
-   
 }

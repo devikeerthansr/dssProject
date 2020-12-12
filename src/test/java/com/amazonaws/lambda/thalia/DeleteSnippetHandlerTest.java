@@ -17,7 +17,7 @@ import com.amazonaws.lambda.thalia.http.SingleSnippetResponse;
 public class DeleteSnippetHandlerTest extends LambdaTest {
 
     @Test
-    public void testCreateAndDeleteConstant() {
+    public void testCreate() {
     	        
         CreateSnippetRequest ccr = new CreateSnippetRequest("abcd", "some code", "info", "120.26.56.23",
     			"Java", 0, new Date(123456));
@@ -25,6 +25,12 @@ public class DeleteSnippetHandlerTest extends LambdaTest {
         SingleSnippetResponse resp = new CreateSnippetHandler().handleRequest(ccr, createContext("createSnippet"));
         Assert.assertEquals(200, resp.response);
         
+    }
+    
+    @Test
+    public void testCreateAndDeleteConstant() {
+    	        
+           
         // now delete
         DeleteSnippetRequest dcr = new DeleteSnippetRequest("abcd", "120.26.56.23",false);
         AllSnippetsResponse d_resp = new DeleteSnippetHandler().handleRequest(dcr, createContext("deleteSnippet"));

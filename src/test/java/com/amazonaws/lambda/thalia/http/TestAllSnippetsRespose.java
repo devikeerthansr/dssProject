@@ -11,8 +11,13 @@ public class TestAllSnippetsRespose {
 		AllSnippetsResponse error = new AllSnippetsResponse(null, 403, "Some error");
 		assertEquals(403, error.statusCode);
 		assertTrue(error.list == null);
-		assertEquals("Some error", error.toString());
+		assertEquals("Some error", error.error);
 		assertTrue(error.toString().startsWith("AllSnippetsResponse"));
+		
+		AllSnippetsResponse resp = new AllSnippetsResponse(null, 200);
+		assertEquals(200, resp.statusCode);
+		assertTrue(resp.list == null);
+		assertTrue(resp.toString().startsWith("AllSnippetsResponse"));
 	}
 
 }

@@ -21,6 +21,10 @@ public class Comment {
 		this.snippetId = snippetId;
 	}
 	
+	public Comment() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * Equality of Constants determined by snippetId and commentId.
 	 */

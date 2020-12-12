@@ -21,6 +21,9 @@ public class Snippet {
 		this.codingLanguage = codingLanguage;
 		this.createDate = createDate;		
 	}
+	public Snippet() {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
 		return "Snippet [snippetId=" + snippetId + ", snippetText=" + snippetText + ", snippetInfo=" + snippetInfo
