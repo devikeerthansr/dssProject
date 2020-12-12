@@ -2,9 +2,17 @@ var snippetTextBeingEdited = false;
 
 // Create a new snippet
 $("#creator-new-snippet").click(function(e){
-   
-      $("#info-textarea").prop('disabled', false);  
-      $("#snippet-textarea").prop('disabled', false);      
+   	  $("#info-textarea").prop('disabled', false);  
+      $("#snippet-textarea").prop('disabled', false);     
+      $("#snippet-textarea").text("");
+   			$("#info-textarea").val("");
+   			$("#id-textarea").val("");
+   			$("#comment").val("");
+   			$("#view-comment-area").val("");
+			if (document.getElementById('commentList') != null)
+			{
+			   document.getElementById('commentList').innerHTML = '';
+			} 
    
 });
 
@@ -67,6 +75,7 @@ $("#save-snippet").click(function(e){
 	  {
 	    handleCreateClick();
 	  }
+      $("#info-textarea").prop('disabled', true);  
       $("#snippet-textarea").prop('disabled', true);
    } 
 });
